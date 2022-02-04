@@ -96,8 +96,8 @@
           Introducing, we are a web-based rest server service that provides Indonesian batik data. You will find all kinds of information you need. some of the features we provide are batik wiki, batik e-commerce, and also various information about batik.<br>
           I hope you are happy with what we make. Your satisfaction is our satisfaction too, so be satisfied
           <br><br>
-          <a href="Resume Khoironi Arief.pdf">
-            <button type="button" data-aos="zoom-in-down" data-aos-delay="500" data-aos-duration="1500" class="mt-3 mb-5 btn btn-warning rounded-pill ps-3 pe-3 fw-bold text-dark">Download CV</button></a>
+          <a href="#">
+            <button type="button" data-aos="zoom-in-down" data-aos-delay="500" data-aos-duration="1500" class="mt-3 mb-5 btn btn-warning rounded-pill ps-3 pe-3 fw-bold text-dark">Gass Keun!</button></a>
         </div>
       </div>
       <br>
