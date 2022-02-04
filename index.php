@@ -27,7 +27,7 @@
   <!-- Icon From FontAwesome -->
   <script src="https://kit.fontawesome.com/c12c059ff2.js" crossorigin="anonymous"></script>
 
-  <title>Khoirony Arief Personal Website</title>
+  <title>Rest Server API Akbar Nazzilla</title>
 </head>
 
 <body>
@@ -35,7 +35,7 @@
   <!-- Navbar -->
   <nav class="bg-white navbar navbar-expand-lg navbar-light border-bottom" style="height: 5rem;">
     <div class="container">
-      <a class="navbar-brand poppins" href="#">Khoirony Arief</a>
+      <a class="navbar-brand poppins" href="#">Rest Server</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -65,11 +65,11 @@
       <br>
       <div class="row align-items-center">
         <div class="col-md text-start">
-          <p class="mb-0 text-landing2 fs-4 fw-bold">HELLO</p>
-          <h1 class="display-1 roboto text-landing2 fw-bolder">I AM <span class="text-landing1">RONY</span></h1>
+          <p class="mb-0 text-landing2 fs-4 fw-bold">WELCOME</p>
+          <h1 class="display-1 roboto text-landing2 fw-bolder">REST <span class="text-landing1">SERVER</span></h1>
           <p class="mt-3 mb-0 lead text-dark fs-3"><br></p>
           <p class="mt-0 mb-4 lead2 text-dark fw-light fs-4"><br><br></p>
-          <a href="#contact"><button type="button" class="mb-5  btn1 btn btn-primary rounded-pill ps-3 pe-3">Let's Talk!</button></a>
+          <a href="#contact"><button type="button" class="mb-5 btn1 btn btn-primary rounded-pill ps-3 pe-3">Kuy Grab!</button></a>
         </div>
         <div class="col-md">
           <img src="images/landingpage.svg" alt="landing" class="img-fluid">
@@ -328,12 +328,12 @@
     gsap.to('.lead', {
       duration: 2,
       delay: 0.1,
-      text: 'I\'m a Junior Web Developer'
+      text: 'Website penyedia data batik Indonesia'
     });
     gsap.to('.lead2', {
       duration: 2.5,
       delay: 2.2,
-      text: 'Welcome to my personal website, wanna discuss about something?'
+      text: 'Sulit dimengerti, semoga harimu menyenangkan!'
     });
     gsap.from('.jumbotron img', {
       duration: 2,
