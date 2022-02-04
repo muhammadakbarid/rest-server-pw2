@@ -86,15 +86,15 @@
     <div class="container text-white">
       <div class="row justify-content-center align-items-center">
         <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
-          <img src="images/rony.jpg" alt="profile" class="border-0 img-thumbnail rounded-circle">
+          <img src="images/d3mi.jpg" alt="profile" class="border-0 img-thumbnail rounded-circle">
         </div>
 
         <div class="text-center col-md-6 ps-3 pe-3" data-aos="fade-left" data-aos-delay="100" data-aos-duration="1500">
           <br>
           <p class="fw-bold fs-3">HI, Nice to meet you.</p>
           <br>
-          Let me introduce myself, I am Informatics engineering student at Universitas PGRI Ronggolawe Tuban, interested in programming especially web programming, experienced as a freelance junior web developer, succeeded in creating websites according to client needs. trying to continue to learn and explore programming languages in order to become a professional web developer. <br>
-          I have some expertise in web programming including: HTML, CSS, Javascript, Bootstrap, PHP, OOP, Codeigniter, MySql, Git, etc.
+          Introducing, we are a web-based rest server service that provides Indonesian batik data. You will find all kinds of information you need. some of the features we provide are batik wiki, batik e-commerce, and also various information about batik.<br>
+          I hope you are happy with what we make. Your satisfaction is our satisfaction too, so be satisfied
           <br><br>
           <a href="Resume Khoironi Arief.pdf">
             <button type="button" data-aos="zoom-in-down" data-aos-delay="500" data-aos-duration="1500" class="mt-3 mb-5 btn btn-warning rounded-pill ps-3 pe-3 fw-bold text-dark">Download CV</button></a>
@@ -159,7 +159,7 @@
             <div class="carousel-inner">
 
               <!-- Project 1 -->
-              <div class="carousel-item active" data-bs-interval="10000">
+              <!-- <div class="carousel-item active" data-bs-interval="10000">
                 <div class="border-0 card">
                   <div class="p-3 row align-items-center">
                     <div class="col-md-6">
@@ -177,11 +177,11 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!-- End Of Project 1 -->
 
               <!-- Project 2 -->
-              <div class="carousel-item">
+              <!-- <div class="carousel-item">
                 <div class="border-0 card">
                   <div class="p-3 row align-items-center">
                     <div class="col-md-6">
@@ -199,11 +199,11 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!-- End Of Project 2 -->
 
               <!-- Project 3 -->
-              <div class="carousel-item">
+              <!-- <div class="carousel-item">
                 <div class="border-0 card">
                   <div class="p-3 row align-items-center">
                     <div class="col-md-6">
@@ -221,7 +221,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!-- End Of Project 3 -->
 
             </div>
@@ -304,12 +304,12 @@
   <footer class="text-center text-white bg-grey" id="footer">
     <div class="container pt-5 pb-4">
       <p class="text-dark">
-        <a href="https://www.linkedin.com/in/khoirony-arief/" class="m-3 text-primary me-5"><i class="bi bi-linkedin fs-2"></i></a>
-        <a href="https://github.com/khoirony" class="m-3 text-primary me-5"><i class="bi bi-github fs-2"></i></a>
-        <a href="mailto:khoironyarief08@gmail.com" class="m-3 text-primary me-5"><i class="bi bi-envelope-fill fs-2"></i></a>
-        <a href="https://wa.me/6283870461640" class="m-3 text-primary"><i class="bi bi-whatsapp fs-2"></i> </a>
+        <a href="#" class="m-3 text-primary me-5"><i class="bi bi-linkedin fs-2"></i></a>
+        <a href="#" class="m-3 text-primary me-5"><i class="bi bi-github fs-2"></i></a>
+        <a href="#" class="m-3 text-primary me-5"><i class="bi bi-envelope-fill fs-2"></i></a>
+        <a href="#" class="m-3 text-primary"><i class="bi bi-whatsapp fs-2"></i> </a>
       </p>
-      <p class="text-center text-dark fw-light poppins">&copy;<span class="text-primary">2021 All Right Reserved</span> - Developed by Khoirony Arief</p>
+      <p class="text-center text-dark fw-light poppins">&copy;<span class="text-primary">2021 All Right Reserved</span> - Developed by D3 MI 3A</p>
     </div>
   </footer>
   <!-- End Of Footer -->
