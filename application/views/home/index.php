@@ -375,8 +375,8 @@
           <img src="assets/vendor/storyset/unlock.svg" width="250" height="250" class="card-img-top" alt="https://storyset.com/technology" title="">
           <ul class="list-group list-group-flush">
             <li class="list-group-item li-header">Create <Span><a href=""><i class="bi bi-info-circle" title="Info"></i></a></Span></li>
-            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="400"><i class="bi bi-check2-circle"></i> Tambah Data Film</li>
-            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="500"><i class="bi bi-check2-circle"></i> Tambah Data Home Production</li>
+            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="400"><i class="bi bi-check2-circle"></i> Create Data Film</li>
+            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="500"><i class="bi bi-check2-circle"></i> Create Data Home Production</li>
 
           </ul>
         </div>
@@ -385,11 +385,10 @@
         <div class="card-service">
           <img src="assets/vendor/storyset/other.svg" width="250" height="250" class="card-img-top" alt="https://storyset.com/technology" title="Technology - Illustrations by Storyset">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item li-header" title="Other">Read <Span><i class="bi bi-info-circle" title="Info"></i></Span></li>
-            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="400" title="Remove Bloatware"><i class="bi bi-check2-circle"></i> Remove Bloatware</li>
-            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="500" title="Software Problem"><i class="bi bi-check2-circle"></i> Software Problem</li>
-            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="600" title="Unlock Bootloader"><i class="bi bi-check2-circle"></i> Unlock Bootloader</li>
-            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="700" title="Unlock Demo Phone"><i class="bi bi-check2-circle"></i> Unlock Demo Phone</li>
+            <li class="list-group-item li-header">Read <Span><a href=""><i class="bi bi-info-circle" title="Info"></i></a></Span></li>
+            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="400"><i class="bi bi-check2-circle"></i> Read Data Film</li>
+            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="500"><i class="bi bi-check2-circle"></i> Read Data Home Production</li>
+
           </ul>
         </div>
       </div>
@@ -397,11 +396,10 @@
         <div class="card-service">
           <img src="assets/vendor/storyset/flashing.svg" width="250" height="250" class="card-img-top" alt="https://storyset.com/technology" title="Technology - Illustrations by Storyset">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item li-header" title="Flashing">Update <Span><a href="https://adriandroidz.blogspot.com/p/flash-tool.html" rel="nofollow" target="_blank"><i class="bi bi-info-circle" title="Info"></i></a></Span></li>
-            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="400" title="Flash Custom Rom"><i class="bi bi-check2-circle"></i> Flash Custom Rom</li>
-            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="500" title="Flash Stock Rom"><i class="bi bi-check2-circle"></i> Flash Stock Rom</li>
-            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="600" title="Flash TWRP"><i class="bi bi-check2-circle"></i> Flash TWRP</li>
-            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="700" title="Root / UnRoot"><i class="bi bi-check2-circle"></i> Root / UnRoot</li>
+            <li class="list-group-item li-header" title="Flashing">Update <Span><a href=""><i class="bi bi-info-circle" title="Info"></i></a></Span></li>
+            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="400"><i class="bi bi-check2-circle"></i>Update Data Film</li>
+            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="500"><i class="bi bi-check2-circle"></i>Update Data Home Production</li>
+
           </ul>
         </div>
       </div>
@@ -409,11 +407,9 @@
         <div class="card-service">
           <img src="assets/vendor/storyset/flashing.svg" width="250" height="250" class="card-img-top" alt="https://storyset.com/technology" title="Technology - Illustrations by Storyset">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item li-header" title="Flashing">Delete <Span><a href="https://adriandroidz.blogspot.com/p/flash-tool.html" rel="nofollow" target="_blank"><i class="bi bi-info-circle" title="Info"></i></a></Span></li>
-            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="400" title="Flash Custom Rom"><i class="bi bi-check2-circle"></i> Flash Custom Rom</li>
-            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="500" title="Flash Stock Rom"><i class="bi bi-check2-circle"></i> Flash Stock Rom</li>
-            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="600" title="Flash TWRP"><i class="bi bi-check2-circle"></i> Flash TWRP</li>
-            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="700" title="Root / UnRoot"><i class="bi bi-check2-circle"></i> Root / UnRoot</li>
+            <li class="list-group-item li-header" title="Flashing">Delete<Span><a href=""><i class="bi bi-info-circle" title="Info"></i></a></Span></li>
+            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="400"><i class="bi bi-check2-circle"></i>Delete Data Film</li>
+            <li class="list-group-item" data-aos="zoom-in" data-aos-delay="500"><i class="bi bi-check2-circle"></i>Delete Data Home Production</li>
           </ul>
         </div>
       </div>
