@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="<?= base_url('/'); ?>assets/css/app.css">
   <link rel="shortcut icon" href="<?= base_url('/'); ?>assets/images/favicon.svg" type="image/x-icon">
   <!-- font awesome cdn -->
-  <script src="https://use.fontawesome.com/8bdbe8669e.js"></script>
+  <!-- <script src="https://use.fontawesome.com/2e63de4c36.js"></script> -->
 
 </head>
 
@@ -48,19 +48,19 @@
 
             <li class="sidebar-item ">
               <a href="<?= base_url('film'); ?>" class='sidebar-link'>
-                <i data-feather="layout" width="20"></i>
+                <i data-feather="film" width="20"></i>
                 <span>Data Film</span>
               </a>
             </li>
             <li class="sidebar-item ">
               <a href="<?= base_url('homeproduction'); ?>" class='sidebar-link'>
-                <i data-feather="layout" width="20"></i>
+                <i data-feather="home" width="20"></i>
                 <span>Data Home Production</span>
               </a>
             </li>
             <li class="sidebar-item ">
               <a href="<?= base_url('user'); ?>" class='sidebar-link'>
-                <i data-feather="layout" width="20"></i>
+                <i data-feather="users" width="20"></i>
                 <span>Data User</span>
               </a>
             </li>
@@ -69,19 +69,19 @@
 
             <li class="sidebar-item ">
               <a href="form-layout.html" class='sidebar-link'>
-                <i data-feather="layout" width="20"></i>
+                <i data-feather="code" width="20"></i>
                 <span>Api Key</span>
               </a>
             </li>
             <li class="sidebar-item ">
               <a href="form-layout.html" class='sidebar-link'>
-                <i data-feather="layout" width="20"></i>
+                <i data-feather="user" width="20"></i>
                 <span>Profil</span>
               </a>
             </li>
             <li class="sidebar-item ">
               <a href="form-layout.html" class='sidebar-link'>
-                <i data-feather="layout" width="20"></i>
+                <i data-feather="book-open" width="20"></i>
                 <span>Dokumentasi Api</span>
               </a>
             </li>
