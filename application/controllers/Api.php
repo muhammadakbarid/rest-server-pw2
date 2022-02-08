@@ -217,37 +217,33 @@ class Api extends RestController
 
     public function homeproduction_post()
     {
-        $id_homeproduction = $this->post('id_homeproduction');
-        $nama_homeproduction = $this->post('nama_homeproduction');
-        $deskripsi = $this->post('deskripsi');
+        $nama = $this->post('nama');
+        $pemilik = $this->post('pemilik');
+        $tahun_berdiri = $this->post('tahun_berdiri');
         $logo = $this->post('logo');
         $website = $this->post('website');
         $email = $this->post('email');
-        $telepon = $this->post('telepon');
+        $no_tlp = $this->post('no_tlp');
         $alamat = $this->post('alamat');
         $facebook = $this->post('facebook');
         $instagram = $this->post('instagram');
         $twitter = $this->post('twitter');
-        $youtube = $this->post('youtube');
-        $linkedin = $this->post('linkedin');
 
         $homeproduction = [
-            'id_homeproduction' => $id_homeproduction,
-            'nama_homeproduction' => $nama_homeproduction,
-            'deskripsi' => $deskripsi,
+            'nama' => $nama,
+            'pemilik' => $pemilik,
+            'tahun_berdiri' => $tahun_berdiri,
             'logo' => $logo,
             'website' => $website,
             'email' => $email,
-            'telepon' => $telepon,
+            'no_tlp' => $no_tlp,
             'alamat' => $alamat,
             'facebook' => $facebook,
             'instagram' => $instagram,
-            'twitter' => $twitter,
-            'youtube' => $youtube,
-            'linkedin' => $linkedin
+            'twitter' => $twitter
         ];
 
-        if ($id_homeproduction && $nama_homeproduction && $deskripsi && $logo && $website && $email && $telepon && $alamat && $facebook && $instagram && $twitter && $youtube && $linkedin) {
+        if ($nama && $pemilik && $tahun_berdiri && $logo && $website && $email && $no_tlp && $alamat && $facebook && $instagram && $twitter) {
             $this->Homeproduction_model->insert($homeproduction);
             $this->response([
                 'status' => true,
@@ -256,7 +252,7 @@ class Api extends RestController
         } else {
             $this->response([
                 'status' => false,
-                'message' => 'data homeproduction gagal diubah'
+                'message' => 'data homeproduction gagal ditambahkan'
             ], 400);
         }
     }
@@ -264,36 +260,35 @@ class Api extends RestController
     public function homeproduction_put()
     {
         $id_homeproduction = $this->put('id_homeproduction');
-        $nama_homeproduction = $this->put('nama_homeproduction');
-        $deskripsi = $this->put('deskripsi');
+        $nama = $this->put('nama');
+        $pemilik = $this->put('pemilik');
+        $tahun_berdiri = $this->put('tahun_berdiri');
         $logo = $this->put('logo');
         $website = $this->put('website');
         $email = $this->put('email');
-        $telepon = $this->put('telepon');
+        $no_tlp = $this->put('no_tlp');
         $alamat = $this->put('alamat');
         $facebook = $this->put('facebook');
         $instagram = $this->put('instagram');
         $twitter = $this->put('twitter');
-        $youtube = $this->put('youtube');
-        $linkedin = $this->put('linkedin');
+
 
         $homeproduction = [
             'id_homeproduction' => $id_homeproduction,
-            'nama_homeproduction' => $nama_homeproduction,
-            'deskripsi' => $deskripsi,
+            'nama' => $nama,
+            'pemilik' => $pemilik,
+            'tahun_berdiri' => $tahun_berdiri,
             'logo' => $logo,
             'website' => $website,
             'email' => $email,
-            'telepon' => $telepon,
+            'no_tlp' => $no_tlp,
             'alamat' => $alamat,
             'facebook' => $facebook,
             'instagram' => $instagram,
             'twitter' => $twitter,
-            'youtube' => $youtube,
-            'linkedin' => $linkedin
         ];
 
-        if ($id_homeproduction && $nama_homeproduction && $deskripsi && $logo && $website && $email && $telepon && $alamat && $facebook && $instagram && $twitter && $youtube && $linkedin) {
+        if ($id_homeproduction && $nama && $pemilik && $tahun_berdiri && $logo && $website && $email && $no_tlp && $alamat && $facebook && $instagram && $twitter) {
             $this->Homeproduction_model->update($id_homeproduction, $homeproduction);
             $this->response([
                 'status' => true,
