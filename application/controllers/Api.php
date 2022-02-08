@@ -62,23 +62,37 @@ class Api extends RestController
 
     public function film_post()
     {
+        $id_homeproduction = $this->post('id_homeproduction');
         $judul = $this->post('judul');
-        $tahun_rilis = $this->post('tahun_rilis');
-        $genre = $this->post('genre');
-        $director = $this->post('director');
+        $producer = $this->post('producer');
+        $penulis_naskah = $this->post('penulis_naskah');
+        $musik = $this->post('musik');
+        $cimatografi = $this->post('cimatografi');
+        $editor = $this->post('editor');
+        $durasi = $this->post('durasi');
         $poster = $this->post('poster');
-        $deskripsi = $this->post('deskripsi');
+        $bahasa = $this->post('bahasa');
+        $negara = $this->post('negara');
+        $rating = $this->post('rating');
+        $tahun_rilis = $this->post('tahun_rilis');
 
         $film = [
+            'id_homeproduction' => $id_homeproduction,
             'judul' => $judul,
-            'tahun_rilis' => $tahun_rilis,
-            'genre' => $genre,
+            'producer' => $producer,
+            'penulis_naskah' => $penulis_naskah,
+            'musik' => $musik,
+            'cimatografi' => $cimatografi,
+            'editor' => $editor,
+            'durasi' => $durasi,
             'poster' => $poster,
-            'deskripsi' => $deskripsi,
-            'director' => $director
+            'bahasa' => $bahasa,
+            'negara' => $negara,
+            'rating' => $rating,
+            'tahun_rilis' => $tahun_rilis
         ];
 
-        if ($judul && $tahun_rilis && $genre && $director && $poster && $deskripsi) {
+        if ($id_homeproduction  && $judul && $producer && $penulis_naskah && $musik && $cimatografi && $editor && $durasi && $poster && $bahasa && $negara && $rating && $tahun_rilis) {
             $this->Film_model->insert($film);
             $this->response([
                 'status' => true,
@@ -94,25 +108,39 @@ class Api extends RestController
 
     public function film_put()
     {
-        $id = $this->put('id');
+        $id_film = $this->put('id_film');
+        $id_homeproduction = $this->put('id_homeproduction');
         $judul = $this->put('judul');
-        $tahun_rilis = $this->put('tahun_rilis');
-        $genre = $this->put('genre');
-        $director = $this->put('director');
+        $producer = $this->put('producer');
+        $penulis_naskah = $this->put('penulis_naskah');
+        $musik = $this->put('musik');
+        $cimatografi = $this->put('cimatografi');
+        $editor = $this->put('editor');
+        $durasi = $this->put('durasi');
         $poster = $this->put('poster');
-        $deskripsi = $this->put('deskripsi');
+        $bahasa = $this->put('bahasa');
+        $negara = $this->put('negara');
+        $rating = $this->put('rating');
+        $tahun_rilis = $this->put('tahun_rilis');
 
         $film = [
+            'id_homeproduction' => $id_homeproduction,
             'judul' => $judul,
-            'tahun_rilis' => $tahun_rilis,
-            'genre' => $genre,
+            'producer' => $producer,
+            'penulis_naskah' => $penulis_naskah,
+            'musik' => $musik,
+            'cimatografi' => $cimatografi,
+            'editor' => $editor,
+            'durasi' => $durasi,
             'poster' => $poster,
-            'deskripsi' => $deskripsi,
-            'director' => $director
+            'bahasa' => $bahasa,
+            'negara' => $negara,
+            'rating' => $rating,
+            'tahun_rilis' => $tahun_rilis
         ];
 
-        if ($id && $judul && $tahun_rilis && $genre && $director && $poster && $deskripsi) {
-            $this->Film_model->update($id, $film);
+        if ($id_homeproduction  && $judul && $producer && $penulis_naskah && $musik && $cimatografi && $editor && $durasi && $poster && $bahasa && $negara && $rating && $tahun_rilis) {
+            $this->Film_model->update($id_film, $film);
             $this->response([
                 'status' => true,
                 'message' => 'data film berhasil diubah'
@@ -139,6 +167,160 @@ class Api extends RestController
             $this->response([
                 'status' => false,
                 'message' => 'data film gagal dihapus'
+            ], 400);
+        }
+    }
+
+    // rest homeproduction
+
+    public function homeproduction_get()
+    {
+        $id = $this->get('id');
+        if ($id) {
+            // ambil data berdasarkan id
+            $homeproduction = $this->Homeproduction_model->get_by_id($id);
+            // jika ada data
+            if ($homeproduction) {
+                $this->response([
+                    'status' => true,
+                    'data' => $homeproduction
+                ], 200);
+            } else {
+                // jika tidak ada data
+                $this->response([
+                    'status' => false,
+                    'message' => 'Id ' . $id . ' tidak ditemukan'
+                ], 404);
+            }
+        } else {
+            // jika tidak ada $id
+            // ambil semua data
+            $homeproduction = $this->Homeproduction_model->get_all();
+            // jika ada data
+            if ($homeproduction) {
+                $total_homeproduction = count($homeproduction);
+                // tampilkan data
+                $this->response([
+                    'status' => true,
+                    'data' => $homeproduction,
+                    'total_homeproduction' => $total_homeproduction
+                ], 200);
+            } else {
+                // jika tidak ada data
+                $this->response([
+                    'status' => false,
+                    'message' => 'data homeproduction tidak ditemukan'
+                ], 404);
+            }
+        }
+    }
+
+    public function homeproduction_post()
+    {
+        $id_homeproduction = $this->post('id_homeproduction');
+        $nama_homeproduction = $this->post('nama_homeproduction');
+        $deskripsi = $this->post('deskripsi');
+        $logo = $this->post('logo');
+        $website = $this->post('website');
+        $email = $this->post('email');
+        $telepon = $this->post('telepon');
+        $alamat = $this->post('alamat');
+        $facebook = $this->post('facebook');
+        $instagram = $this->post('instagram');
+        $twitter = $this->post('twitter');
+        $youtube = $this->post('youtube');
+        $linkedin = $this->post('linkedin');
+
+        $homeproduction = [
+            'id_homeproduction' => $id_homeproduction,
+            'nama_homeproduction' => $nama_homeproduction,
+            'deskripsi' => $deskripsi,
+            'logo' => $logo,
+            'website' => $website,
+            'email' => $email,
+            'telepon' => $telepon,
+            'alamat' => $alamat,
+            'facebook' => $facebook,
+            'instagram' => $instagram,
+            'twitter' => $twitter,
+            'youtube' => $youtube,
+            'linkedin' => $linkedin
+        ];
+
+        if ($id_homeproduction && $nama_homeproduction && $deskripsi && $logo && $website && $email && $telepon && $alamat && $facebook && $instagram && $twitter && $youtube && $linkedin) {
+            $this->Homeproduction_model->insert($homeproduction);
+            $this->response([
+                'status' => true,
+                'message' => 'data homeproduction berhasil ditambahkan'
+            ], 200);
+        } else {
+            $this->response([
+                'status' => false,
+                'message' => 'data homeproduction gagal diubah'
+            ], 400);
+        }
+    }
+
+    public function homeproduction_put()
+    {
+        $id_homeproduction = $this->put('id_homeproduction');
+        $nama_homeproduction = $this->put('nama_homeproduction');
+        $deskripsi = $this->put('deskripsi');
+        $logo = $this->put('logo');
+        $website = $this->put('website');
+        $email = $this->put('email');
+        $telepon = $this->put('telepon');
+        $alamat = $this->put('alamat');
+        $facebook = $this->put('facebook');
+        $instagram = $this->put('instagram');
+        $twitter = $this->put('twitter');
+        $youtube = $this->put('youtube');
+        $linkedin = $this->put('linkedin');
+
+        $homeproduction = [
+            'id_homeproduction' => $id_homeproduction,
+            'nama_homeproduction' => $nama_homeproduction,
+            'deskripsi' => $deskripsi,
+            'logo' => $logo,
+            'website' => $website,
+            'email' => $email,
+            'telepon' => $telepon,
+            'alamat' => $alamat,
+            'facebook' => $facebook,
+            'instagram' => $instagram,
+            'twitter' => $twitter,
+            'youtube' => $youtube,
+            'linkedin' => $linkedin
+        ];
+
+        if ($id_homeproduction && $nama_homeproduction && $deskripsi && $logo && $website && $email && $telepon && $alamat && $facebook && $instagram && $twitter && $youtube && $linkedin) {
+            $this->Homeproduction_model->update($id_homeproduction, $homeproduction);
+            $this->response([
+                'status' => true,
+                'message' => 'data homeproduction berhasil diubah'
+            ], 200);
+        } else {
+            $this->response([
+                'status' => false,
+                'message' => 'data film gagal diubah'
+            ], 400);
+        }
+    }
+
+    public function homeproduction_delete()
+    {
+        $id = $this->delete('id');
+
+        if ($id) {
+            $this->Homeproduction_model->delete($id);
+            $this->response([
+                'status' => true,
+                'message' => 'data homeproduction berhasil dihapus'
+            ], 200);
+        } else {
+            $this->response([
+                'status' => false,
+                'message' => 'data homeproduction gagal dihapus'
             ], 400);
         }
     }
