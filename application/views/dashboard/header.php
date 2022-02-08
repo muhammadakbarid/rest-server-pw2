@@ -12,7 +12,7 @@
 
   <link rel="stylesheet" href="<?= base_url('/'); ?>assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
   <link rel="stylesheet" href="<?= base_url('/'); ?>assets/css/app.css">
-  <link rel="shortcut icon" href="<?= base_url('/'); ?>assets/images/favicon.svg" type="image/x-icon">
+  <link rel="shortcut icon" href="<?= base_url('/'); ?>assets/img/logo.png" type="image/x-icon">
   <!-- font awesome cdn -->
   <!-- <script src="https://use.fontawesome.com/2e63de4c36.js"></script> -->
 

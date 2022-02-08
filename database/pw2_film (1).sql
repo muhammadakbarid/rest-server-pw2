@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2022 at 11:39 AM
+-- Generation Time: Feb 08, 2022 at 03:45 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -49,7 +49,10 @@ CREATE TABLE `film` (
 --
 
 INSERT INTO `film` (`id_film`, `id_homeproduction`, `judul`, `producer`, `penulis_naskah`, `musik`, `cimatografi`, `editor`, `durasi`, `poster`, `bahasa`, `negara`, `rating`, `tahun_rilis`) VALUES
-(2, 1, 'ajsbdjasd', 'asdasd', 'asdasd', 'asdasd', 'asdasd', 'asdasd', '123', 'aaa.jpg', 'sadasd', 'asdasd', '12', 0000);
+(3, 2, 'Naruto Ninja Stroms', 'akbar', 'nazzilla', 'akbar', 'akbar', 'akbar', '123 Menit', '52pemainpositif', 'Indonesia', 'Indonesia', '13+', 2020),
+(4, 2, 'Naruto Ninja Stroms', 'akbar', 'nazzilla', 'akbar', 'akbar', 'akbar', '123 Menit', 'F2202407763_16437247891jpg', 'Indonesia', 'Indonesia', '13+', 2020),
+(5, 2, 'Naruto Ninja Stroms', 'akbar', 'nazzilla', 'akbar', 'akbars', 'akbar', '123 Menit', 'Akmal-Marhal.jpg', 'Indonesia', 'Indonesia', '13+', 2020),
+(6, 2, 'Marry Me (2022 Film)', 'Benny Medina', 'John Rogers', 'John Debney', 'Florian Ballhaus', 'Michael Berenbaum', '112 Minute', 'Marry_Me_2022_Poster.jpg', 'English', 'United States', 'PG-13', 2022);
 
 -- --------------------------------------------------------
 
@@ -71,6 +74,13 @@ CREATE TABLE `homeproduction` (
   `facebook` varchar(50) NOT NULL,
   `twitter` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `homeproduction`
+--
+
+INSERT INTO `homeproduction` (`id_homeproduction`, `nama`, `pemilik`, `tahun_berdiri`, `email`, `alamat`, `no_tlp`, `logo`, `website`, `instagram`, `facebook`, `twitter`) VALUES
+(2, 'Akbar Movie', 'akbar muhammad', 2022, 'muhakbar@gmail.com', 'Jl. Poltekpos', '08123456789', 'akbrmovie.jpg', 'www.akbrmovie.com', 'akbr', 'akbrfb', 'akbrtw');
 
 -- --------------------------------------------------------
 
@@ -115,13 +125,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `film`
 --
 ALTER TABLE `film`
-  MODIFY `id_film` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_film` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `homeproduction`
 --
 ALTER TABLE `homeproduction`
-  MODIFY `id_homeproduction` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_homeproduction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`

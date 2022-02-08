@@ -9,6 +9,7 @@ class Film extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Film_model');
+        $this->load->model('Homeproduction_model');
         $this->load->library('form_validation');
     }
 
@@ -48,6 +49,9 @@ class Film extends CI_Controller
     public function read($id)
     {
         $row = $this->Film_model->get_by_id($id);
+        // homeproduction by id
+        $homeproduction = $this->Homeproduction_model->get_by_id($row->id_homeproduction);
+
         if ($row) {
             $data = array(
                 'id_film' => $row->id_film,
@@ -64,6 +68,7 @@ class Film extends CI_Controller
                 'negara' => $row->negara,
                 'rating' => $row->rating,
                 'tahun_rilis' => $row->tahun_rilis,
+                'homeproduction' => $homeproduction->nama,
             );
             $this->load->view('dashboard/header');
             $this->load->view('film/film_read', $data);
@@ -76,6 +81,8 @@ class Film extends CI_Controller
 
     public function create()
     {
+        // get data homeproduction
+        $homeproduction = $this->Homeproduction_model->get_all();
         $data = array(
             'button' => 'Create',
             'action' => site_url('film/create_action'),
@@ -93,6 +100,7 @@ class Film extends CI_Controller
             'negara' => set_value('negara'),
             'rating' => set_value('rating'),
             'tahun_rilis' => set_value('tahun_rilis'),
+            'homeproduction' => $homeproduction,
         );
         $this->load->view('dashboard/header');
         $this->load->view('film/film_form', $data);
@@ -106,6 +114,29 @@ class Film extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->create();
         } else {
+            // upload poster
+            $temp = "assets/img/";
+            if (!file_exists($temp))
+                mkdir($temp);
+
+            // $nama_file       = $_POST['poster'];
+            $fileupload      = $_FILES['poster']['tmp_name'];
+            $ImageName       = $_FILES['poster']['name'];
+            $ImageType       = $_FILES['poster']['type'];
+
+            if (!empty($fileupload)) {
+                $ImageExt       = substr($ImageName, strrpos($ImageName, '.'));
+                $ImageExt       = str_replace('.', '', $ImageExt); // Extension
+                $ImageName      = preg_replace("/\.[^.\s]{3,4}$/", "", $ImageName);
+                $NewImageName   = str_replace(' ', '', $ImageName) . '.' . $ImageExt;
+
+                move_uploaded_file($_FILES["poster"]["tmp_name"], $temp . $NewImageName); // Menyimpan file
+
+                echo "Data Berhasil Diupload";
+            } else {
+                echo "Data Gagal Diupload";
+            }
+
             $data = array(
                 'id_homeproduction' => $this->input->post('id_homeproduction', TRUE),
                 'judul' => $this->input->post('judul', TRUE),
@@ -115,7 +146,7 @@ class Film extends CI_Controller
                 'cimatografi' => $this->input->post('cimatografi', TRUE),
                 'editor' => $this->input->post('editor', TRUE),
                 'durasi' => $this->input->post('durasi', TRUE),
-                'poster' => $this->input->post('poster', TRUE),
+                'poster' => $NewImageName,
                 'bahasa' => $this->input->post('bahasa', TRUE),
                 'negara' => $this->input->post('negara', TRUE),
                 'rating' => $this->input->post('rating', TRUE),
@@ -131,7 +162,8 @@ class Film extends CI_Controller
     public function update($id)
     {
         $row = $this->Film_model->get_by_id($id);
-
+        // get data homeproduction
+        $homeproduction = $this->Homeproduction_model->get_all();
         if ($row) {
             $data = array(
                 'button' => 'Update',
@@ -150,8 +182,11 @@ class Film extends CI_Controller
                 'negara' => set_value('negara', $row->negara),
                 'rating' => set_value('rating', $row->rating),
                 'tahun_rilis' => set_value('tahun_rilis', $row->tahun_rilis),
+                'homeproduction' => $homeproduction,
             );
+            $this->load->view('dashboard/header');
             $this->load->view('film/film_form', $data);
+            $this->load->view('dashboard/footer');
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('film'));
@@ -165,6 +200,31 @@ class Film extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->update($this->input->post('id_film', TRUE));
         } else {
+
+            // upload poster
+            $temp = "assets/img/";
+            if (!file_exists($temp))
+                mkdir($temp);
+
+            // $nama_file       = $_POST['poster'];
+            $fileupload      = $_FILES['poster']['tmp_name'];
+            $ImageName       = $_FILES['poster']['name'];
+            $ImageType       = $_FILES['poster']['type'];
+
+            if (!empty($fileupload)) {
+                $ImageExt       = substr($ImageName, strrpos($ImageName, '.'));
+                $ImageExt       = str_replace('.', '', $ImageExt); // Extension
+                $ImageName      = preg_replace("/\.[^.\s]{3,4}$/", "", $ImageName);
+                $NewImageName   = str_replace(' ', '', $ImageName) . '.' . $ImageExt;
+
+                move_uploaded_file($_FILES["poster"]["tmp_name"], $temp . $NewImageName); // Menyimpan file
+
+                echo "Data Berhasil Diupload";
+            } else {
+                $NewImageName = $this->input->post('posterbc');
+            }
+
+
             $data = array(
                 'id_homeproduction' => $this->input->post('id_homeproduction', TRUE),
                 'judul' => $this->input->post('judul', TRUE),
@@ -174,7 +234,7 @@ class Film extends CI_Controller
                 'cimatografi' => $this->input->post('cimatografi', TRUE),
                 'editor' => $this->input->post('editor', TRUE),
                 'durasi' => $this->input->post('durasi', TRUE),
-                'poster' => $this->input->post('poster', TRUE),
+                'poster' => $NewImageName,
                 'bahasa' => $this->input->post('bahasa', TRUE),
                 'negara' => $this->input->post('negara', TRUE),
                 'rating' => $this->input->post('rating', TRUE),
@@ -211,7 +271,7 @@ class Film extends CI_Controller
         $this->form_validation->set_rules('cimatografi', 'cimatografi', 'trim|required');
         $this->form_validation->set_rules('editor', 'editor', 'trim|required');
         $this->form_validation->set_rules('durasi', 'durasi', 'trim|required');
-        $this->form_validation->set_rules('poster', 'poster', 'trim|required');
+        // $this->form_validation->set_rules('poster', 'poster', 'trim|required');
         $this->form_validation->set_rules('bahasa', 'bahasa', 'trim|required');
         $this->form_validation->set_rules('negara', 'negara', 'trim|required');
         $this->form_validation->set_rules('rating', 'rating', 'trim|required');
