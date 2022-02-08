@@ -117,7 +117,7 @@
             </div>
             <input type="hidden" name="id_film" value="<?php echo $id_film; ?>" />
             <button type="submit" class="btn btn-primary"><?php echo $button ?></button>
-            <a href="<?php echo site_url('film') ?>" class="btn btn-default">Cancel</a>
+            <a href="<?php echo site_url('film') ?>" class="btn btn-secondary">Cancel</a>
         </form>
     </div>
 </div>

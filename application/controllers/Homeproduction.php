@@ -102,6 +102,29 @@ class Homeproduction extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->create();
         } else {
+            // upload logo
+            $temp = "assets/img/logo/";
+            if (!file_exists($temp))
+                mkdir($temp);
+
+            // $nama_file       = $_POST['logo'];
+            $fileupload      = $_FILES['logo']['tmp_name'];
+            $ImageName       = $_FILES['logo']['name'];
+            $ImageType       = $_FILES['logo']['type'];
+
+            if (!empty($fileupload)) {
+                $ImageExt       = substr($ImageName, strrpos($ImageName, '.'));
+                $ImageExt       = str_replace('.', '', $ImageExt); // Extension
+                $ImageName      = preg_replace("/\.[^.\s]{3,4}$/", "", $ImageName);
+                $NewImageName   = str_replace(' ', '', $ImageName) . '.' . $ImageExt;
+
+                move_uploaded_file($_FILES["logo"]["tmp_name"], $temp . $NewImageName); // Menyimpan file
+
+                echo "Data Berhasil Diupload";
+            } else {
+                echo "Data Gagal Diupload";
+            }
+
             $data = array(
                 'nama' => $this->input->post('nama', TRUE),
                 'pemilik' => $this->input->post('pemilik', TRUE),
@@ -109,7 +132,7 @@ class Homeproduction extends CI_Controller
                 'email' => $this->input->post('email', TRUE),
                 'alamat' => $this->input->post('alamat', TRUE),
                 'no_tlp' => $this->input->post('no_tlp', TRUE),
-                'logo' => $this->input->post('logo', TRUE),
+                'logo' => $NewImageName,
                 'website' => $this->input->post('website', TRUE),
                 'instagram' => $this->input->post('instagram', TRUE),
                 'facebook' => $this->input->post('facebook', TRUE),
@@ -159,6 +182,28 @@ class Homeproduction extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->update($this->input->post('id_homeproduction', TRUE));
         } else {
+            // upload logo
+            $temp = "assets/img/logo/";
+            if (!file_exists($temp))
+                mkdir($temp);
+
+            // $nama_file       = $_POST['logo'];
+            $fileupload      = $_FILES['logo']['tmp_name'];
+            $ImageName       = $_FILES['logo']['name'];
+            $ImageType       = $_FILES['logo']['type'];
+
+            if (!empty($fileupload)) {
+                $ImageExt       = substr($ImageName, strrpos($ImageName, '.'));
+                $ImageExt       = str_replace('.', '', $ImageExt); // Extension
+                $ImageName      = preg_replace("/\.[^.\s]{3,4}$/", "", $ImageName);
+                $NewImageName   = str_replace(' ', '', $ImageName) . '.' . $ImageExt;
+
+                move_uploaded_file($_FILES["logo"]["tmp_name"], $temp . $NewImageName); // Menyimpan file
+
+                echo "Data Berhasil Diupload";
+            } else {
+                $NewImageName = $this->input->post('logobc');
+            }
             $data = array(
                 'nama' => $this->input->post('nama', TRUE),
                 'pemilik' => $this->input->post('pemilik', TRUE),
@@ -166,7 +211,7 @@ class Homeproduction extends CI_Controller
                 'email' => $this->input->post('email', TRUE),
                 'alamat' => $this->input->post('alamat', TRUE),
                 'no_tlp' => $this->input->post('no_tlp', TRUE),
-                'logo' => $this->input->post('logo', TRUE),
+                'logo' => $NewImageName,
                 'website' => $this->input->post('website', TRUE),
                 'instagram' => $this->input->post('instagram', TRUE),
                 'facebook' => $this->input->post('facebook', TRUE),
@@ -201,7 +246,7 @@ class Homeproduction extends CI_Controller
         $this->form_validation->set_rules('email', 'email', 'trim|required');
         $this->form_validation->set_rules('alamat', 'alamat', 'trim|required');
         $this->form_validation->set_rules('no_tlp', 'no tlp', 'trim|required');
-        $this->form_validation->set_rules('logo', 'logo', 'trim|required');
+        // $this->form_validation->set_rules('logo', 'logo', 'trim|required');
         $this->form_validation->set_rules('website', 'website', 'trim|required');
         $this->form_validation->set_rules('instagram', 'instagram', 'trim|required');
         $this->form_validation->set_rules('facebook', 'facebook', 'trim|required');

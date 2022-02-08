@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2022 at 03:45 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- Waktu pembuatan: 08 Feb 2022 pada 16.44
+-- Versi server: 10.4.6-MariaDB
+-- Versi PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -24,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `film`
+-- Struktur dari tabel `film`
 --
 
 CREATE TABLE `film` (
@@ -45,19 +46,16 @@ CREATE TABLE `film` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `film`
+-- Dumping data untuk tabel `film`
 --
 
 INSERT INTO `film` (`id_film`, `id_homeproduction`, `judul`, `producer`, `penulis_naskah`, `musik`, `cimatografi`, `editor`, `durasi`, `poster`, `bahasa`, `negara`, `rating`, `tahun_rilis`) VALUES
-(3, 2, 'Naruto Ninja Stroms', 'akbar', 'nazzilla', 'akbar', 'akbar', 'akbar', '123 Menit', '52pemainpositif', 'Indonesia', 'Indonesia', '13+', 2020),
-(4, 2, 'Naruto Ninja Stroms', 'akbar', 'nazzilla', 'akbar', 'akbar', 'akbar', '123 Menit', 'F2202407763_16437247891jpg', 'Indonesia', 'Indonesia', '13+', 2020),
-(5, 2, 'Naruto Ninja Stroms', 'akbar', 'nazzilla', 'akbar', 'akbars', 'akbar', '123 Menit', 'Akmal-Marhal.jpg', 'Indonesia', 'Indonesia', '13+', 2020),
 (6, 2, 'Marry Me (2022 Film)', 'Benny Medina', 'John Rogers', 'John Debney', 'Florian Ballhaus', 'Michael Berenbaum', '112 Minute', 'Marry_Me_2022_Poster.jpg', 'English', 'United States', 'PG-13', 2022);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `homeproduction`
+-- Struktur dari tabel `homeproduction`
 --
 
 CREATE TABLE `homeproduction` (
@@ -76,16 +74,17 @@ CREATE TABLE `homeproduction` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `homeproduction`
+-- Dumping data untuk tabel `homeproduction`
 --
 
 INSERT INTO `homeproduction` (`id_homeproduction`, `nama`, `pemilik`, `tahun_berdiri`, `email`, `alamat`, `no_tlp`, `logo`, `website`, `instagram`, `facebook`, `twitter`) VALUES
-(2, 'Akbar Movie', 'akbar muhammad', 2022, 'muhakbar@gmail.com', 'Jl. Poltekpos', '08123456789', 'akbrmovie.jpg', 'www.akbrmovie.com', 'akbr', 'akbrfb', 'akbrtw');
+(2, 'Akbar Movie', 'akbar muhammad', 2022, 'muhakbar@gmail.com', 'Jl. Poltekpos', '08123456789', 'images-removebg-preview.png', 'www.akbrmovie.com', 'akbr', 'akbrfb', 'akbrtw'),
+(4, 'Media Tamaa', 'nazziilla', 2022, 'mediatama2@gmail.com', 'Jl. Poltekpos No 890', '08123456789', 'WhatsAppImage2022-01-20at14.08.06(1).jpeg', 'www.mediatama2@gmail.com', 'mediatama2ig', 'mediatama2fb', 'mediatama2tw');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -96,48 +95,55 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id_user`, `nama`, `email`, `password`) VALUES
+(1, 'nazzilla ap', 'auliyanazzilla@gmail.com', '12345678');
+
+--
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `film`
+-- Indeks untuk tabel `film`
 --
 ALTER TABLE `film`
   ADD PRIMARY KEY (`id_film`);
 
 --
--- Indexes for table `homeproduction`
+-- Indeks untuk tabel `homeproduction`
 --
 ALTER TABLE `homeproduction`
   ADD PRIMARY KEY (`id_homeproduction`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `film`
+-- AUTO_INCREMENT untuk tabel `film`
 --
 ALTER TABLE `film`
   MODIFY `id_film` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `homeproduction`
+-- AUTO_INCREMENT untuk tabel `homeproduction`
 --
 ALTER TABLE `homeproduction`
-  MODIFY `id_homeproduction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_homeproduction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

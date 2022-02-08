@@ -62,7 +62,7 @@
 					</tr>
 					<tr>
 						<td></td>
-						<td><a href="<?php echo site_url('film') ?>" class="btn btn-default">Cancel</a></td>
+						<td><a href="<?php echo site_url('film') ?>" class="btn btn-secondary">Cancel</a></td>
 					</tr>
 				</table>
 			</div>
