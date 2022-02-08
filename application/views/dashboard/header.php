@@ -30,18 +30,13 @@
         </div>
         <div class="sidebar-menu">
           <ul class="menu">
-
-
             <li class='sidebar-title'>Main Menu</li>
 
-
-
-            <li class="sidebar-item active ">
+            <li class="sidebar-item">
               <a href="<?= base_url('dashboard'); ?>" class='sidebar-link'>
                 <i data-feather="home" width="20"></i>
                 <span>Dashboard</span>
               </a>
-
             </li>
 
             <li class='sidebar-title'>Admin</li>

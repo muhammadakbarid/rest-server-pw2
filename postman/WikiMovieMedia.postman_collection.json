@@ -1,0 +1,476 @@
+{
+	"info": {
+		"_postman_id": "6eac51c3-c907-4e13-8206-dd9812de9041",
+		"name": "WikiMovieMedia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Film",
+			"item": [
+				{
+					"name": "Get Data Film",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/pw2/rest-server-pw2/Api/film?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pw2",
+								"rest-server-pw2",
+								"Api",
+								"film"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tambah Data Film",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_homeproduction",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "judul",
+									"value": "ajsbdjasd",
+									"type": "text"
+								},
+								{
+									"key": "producer",
+									"value": "asdasd",
+									"type": "text"
+								},
+								{
+									"key": "penulis_naskah",
+									"value": "asdasd",
+									"type": "text"
+								},
+								{
+									"key": "musik",
+									"value": "asdasd",
+									"type": "text"
+								},
+								{
+									"key": "cimatografi",
+									"value": "asdasd",
+									"type": "text"
+								},
+								{
+									"key": "editor",
+									"value": "asdasd",
+									"type": "text"
+								},
+								{
+									"key": "editor",
+									"value": "asdasd",
+									"type": "text"
+								},
+								{
+									"key": "durasi",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "poster",
+									"value": "aaa.jpg",
+									"type": "text"
+								},
+								{
+									"key": "bahasa",
+									"value": "sadasd",
+									"type": "text"
+								},
+								{
+									"key": "negara",
+									"value": "asdasd",
+									"type": "text"
+								},
+								{
+									"key": "rating",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "tahun_rilis",
+									"value": "2222",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/pw2/rest-server-pw2/Api/film",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pw2",
+								"rest-server-pw2",
+								"Api",
+								"film"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Data Film",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_film",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "id_homeproduction",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "judul",
+									"value": "ajsbdjasd",
+									"type": "text"
+								},
+								{
+									"key": "producer",
+									"value": "asdasd",
+									"type": "text"
+								},
+								{
+									"key": "penulis_naskah",
+									"value": "asdasd",
+									"type": "text"
+								},
+								{
+									"key": "musik",
+									"value": "asdasd",
+									"type": "text"
+								},
+								{
+									"key": "cimatografi",
+									"value": "asdasd",
+									"type": "text"
+								},
+								{
+									"key": "editor",
+									"value": "asdasd",
+									"type": "text"
+								},
+								{
+									"key": "editor",
+									"value": "asdasd",
+									"type": "text"
+								},
+								{
+									"key": "durasi",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "poster",
+									"value": "aaa.jpg",
+									"type": "text"
+								},
+								{
+									"key": "bahasa",
+									"value": "sadasd",
+									"type": "text"
+								},
+								{
+									"key": "negara",
+									"value": "asdasd",
+									"type": "text"
+								},
+								{
+									"key": "rating",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "tahun_rilis",
+									"value": "2222",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/pw2/rest-server-pw2/Api/film",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pw2",
+								"rest-server-pw2",
+								"Api",
+								"film"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hapus Data Film",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/pw2/rest-server-pw2/Api/film",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pw2",
+								"rest-server-pw2",
+								"Api",
+								"film"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Home Production",
+			"item": [
+				{
+					"name": "Get Data Homeproduction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/pw2/rest-server-pw2/Api/homeproduction?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pw2",
+								"rest-server-pw2",
+								"Api",
+								"homeproduction"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tambah Data Homeproduction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama",
+									"value": "Akbar Movie",
+									"type": "text"
+								},
+								{
+									"key": "pemilik",
+									"value": "akbar muhammad",
+									"type": "text"
+								},
+								{
+									"key": "tahun_berdiri",
+									"value": "2022",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "muhakbar@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "alamat",
+									"value": "Jl. Poltekpos",
+									"type": "text"
+								},
+								{
+									"key": "no_tlp",
+									"value": "08123456789",
+									"type": "text"
+								},
+								{
+									"key": "logo",
+									"value": "akbrmovie.jpg",
+									"type": "text"
+								},
+								{
+									"key": "website",
+									"value": "www.akbrmovie.com",
+									"type": "text"
+								},
+								{
+									"key": "instagram",
+									"value": "akbr",
+									"type": "text"
+								},
+								{
+									"key": "facebook",
+									"value": "akbrfb",
+									"type": "text"
+								},
+								{
+									"key": "twitter",
+									"value": "akbrtw",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/pw2/rest-server-pw2/Api/homeproduction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pw2",
+								"rest-server-pw2",
+								"Api",
+								"homeproduction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Data Homeproduction",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_homeproduction",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "nama",
+									"value": "Mediaku",
+									"type": "text"
+								},
+								{
+									"key": "pemilik",
+									"value": "aristya",
+									"type": "text"
+								},
+								{
+									"key": "tahun_berdiri",
+									"value": "1999",
+									"type": "text"
+								},
+								{
+									"key": "logo",
+									"value": "aris.jpg",
+									"type": "text"
+								},
+								{
+									"key": "website",
+									"value": "www.mediaku.com",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mediaku@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "no_tlp",
+									"value": "08123456789",
+									"type": "text"
+								},
+								{
+									"key": "alamat",
+									"value": "JL. polpos 54 Bandung",
+									"type": "text"
+								},
+								{
+									"key": "facebook",
+									"value": "mediakufb",
+									"type": "text"
+								},
+								{
+									"key": "instagram",
+									"value": "mediakuig",
+									"type": "text"
+								},
+								{
+									"key": "twitter",
+									"value": "mediakutw",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/pw2/rest-server-pw2/Api/homeproduction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pw2",
+								"rest-server-pw2",
+								"Api",
+								"homeproduction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hapus Data Homeproduction",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
