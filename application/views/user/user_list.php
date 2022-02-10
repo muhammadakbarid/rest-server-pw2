@@ -46,7 +46,6 @@
                     <td><?php echo $user->nama ?></td>
                     <td><?php echo $user->email ?></td>
                     <td><?php echo $user->hak_akses ?></td>
-                    <!-- <td><?php echo $user->password ?></td> -->
                     <td style="text-align:center" width="200px">
                         <?php
                         echo anchor(site_url('user/read/' . $user->id_user), 'Read');
