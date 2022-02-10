@@ -119,6 +119,7 @@ class User extends CI_Controller
             'nama' => set_value('nama'),
             'email' => set_value('email'),
             'password' => set_value('password'),
+            'hak_akses' => set_value('hak_akses'),
         );
         $this->load->view('dashboard/header');
         $this->load->view('user/user_form', $data);
@@ -155,7 +156,7 @@ class User extends CI_Controller
                 'id_user' => set_value('id_user', $row->id_user),
                 'nama' => set_value('nama', $row->nama),
                 'email' => set_value('email', $row->email),
-                'password' => set_value('password', $row->password),
+                'hak_akses' => set_value('hak_akses', $row->hak_akses),
             );
             $this->load->view('dashboard/header');
             $this->load->view('user/user_form', $data);
@@ -170,14 +171,41 @@ class User extends CI_Controller
     {
         $this->_rules();
 
+        $hak_akses = $this->input->post('hak_akses', TRUE);
+        if ($hak_akses == "") {
+            $hak_akses = $this->input->post('hak_akses_old', TRUE);
+        }
         if ($this->form_validation->run() == FALSE) {
             $this->update($this->input->post('id_user', TRUE));
         } else {
-            $data = array(
-                'nama' => $this->input->post('nama', TRUE),
-                'email' => $this->input->post('email', TRUE),
-                'password' => $this->input->post('password', TRUE),
-            );
+            // jika user mengubah password
+            if ($this->input->post('password')) {
+                $password = $this->input->post('password');
+                $confirm_password = $this->input->post('confirm_password');
+
+                // chek password = confirm password
+                if ($password != $confirm_password) {
+                    // password tidak sama
+                    // set pesan error "Password tidak sama"
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password tidak sama</div>');
+                    redirect(base_url('user/update/' . $this->input->post('id_user', TRUE)));
+                } else {
+                    // password sama
+                    // update data user
+                    $data = array(
+                        'nama' => $this->input->post('nama', TRUE),
+                        'email' => $this->input->post('email', TRUE),
+                        'password' => $password,
+                        'hak_akses' => $hak_akses,
+                    );
+                }
+            } else {
+                $data = array(
+                    'nama' => $this->input->post('nama', TRUE),
+                    'email' => $this->input->post('email', TRUE),
+                    'hak_akses' => $hak_akses,
+                );
+            }
 
             $this->User_model->update($this->input->post('id_user', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
@@ -206,7 +234,7 @@ class User extends CI_Controller
     {
         $this->form_validation->set_rules('nama', 'nama', 'trim|required');
         $this->form_validation->set_rules('email', 'email', 'trim|required');
-        $this->form_validation->set_rules('password', 'password', 'trim|required');
+        // $this->form_validation->set_rules('password', 'password', 'trim|required');
 
         $this->form_validation->set_rules('id_user', 'id_user', 'trim');
         $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

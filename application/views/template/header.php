@@ -70,7 +70,7 @@
         </li>';
           } else {
             echo '<li class="nav-item">
-            <a class="nav-link" href="' . base_url() . 'auth/login" title="Login">Login</a>
+            <a class="nav-link" href="' . base_url() . 'auth" title="Login">Login</a>
           </li>';
           }
           ?>

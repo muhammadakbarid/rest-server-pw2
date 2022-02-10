@@ -60,9 +60,11 @@
                 <form action="<?= base_url('auth/login'); ?>" method="POST">
                   <!-- if $this->session->flashdata('item'); -->
                   <div class="form-group">
-                    <?php if ($this->session->flashdata('message')) { ?>
+                    <?php
+                    if ($this->session->flashdata('message')) { ?>
                       <?= $this->session->flashdata('message'); ?>
                     <?php } ?>
+
                   </div>
 
 

@@ -11,7 +11,6 @@ class Auth extends CI_Controller
 
   public function index()
   {
-    // clear flashdata
     $this->load->view('auth/login');
     $this->wmm->auth_login();
   }

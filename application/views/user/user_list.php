@@ -7,7 +7,7 @@
             </div>
             <div class="text-center col-md-4">
                 <div style="margin-top: 8px" id="message">
-                    <?php echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : ''; ?>
+                    <?php echo $this->session->flashdata('message') <> '' ? $this->session->flashdata('message') : ''; ?>
                 </div>
             </div>
             <div class="text-right col-md-1">
