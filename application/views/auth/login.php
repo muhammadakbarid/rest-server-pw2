@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign in - Voler Admin Dashboard</title>
+  <title>Login - WikiMovieMedia</title>
   <link rel="stylesheet" href="<?= base_url(); ?>assets/css/bootstrap.css">
   <link rel="shortcut icon" href="<?= base_url('/'); ?>assets/img/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="<?= base_url(); ?>assets/css/app.css">

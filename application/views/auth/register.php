@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign up - Voler Admin Dashboard</title>
+  <title>Register - WikiMovieMedia</title>
   <link rel="stylesheet" href="<?= base_url(); ?>assets/css/bootstrap.css">
 
-  <link rel="shortcut icon" href="<?= base_url(); ?>assets/images/favicon.svg" type="image/x-icon">
+  <link rel="shortcut icon" href="<?= base_url('/'); ?>assets/img/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="<?= base_url(); ?>assets/css/app.css">
   <style>
     body {
@@ -53,8 +53,8 @@
             <div class="pt-4 card">
               <div class="card-body">
                 <div class="mb-5 text-center">
-                  <img src="<?= base_url(); ?>assets/images/favicon.svg" height="48" class='mb-4'>
-                  <h3>Sign Up</h3>
+                  <img src="<?= base_url('/'); ?>assets/img/logo.png" height="48" class='mb-4'>
+                  <h3>Registration</h3>
                   <p>Please fill the form to register.</p>
                 </div>
                 <form action="<?= base_url('auth/register_action'); ?>" method="POST">

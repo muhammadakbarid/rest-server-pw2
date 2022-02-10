@@ -65,6 +65,13 @@ class Keys_model extends CI_Model
         return $this->db->get($this->table)->result();
     }
 
+    // delete by user_id
+    function delete_by_userid($userid)
+    {
+        $this->db->where('user_id', $userid);
+        $this->db->delete($this->table);
+    }
+
     // insert data
     function insert($data)
     {

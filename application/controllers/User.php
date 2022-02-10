@@ -190,6 +190,9 @@ class User extends CI_Controller
 
         if ($row) {
             $this->User_model->delete($id);
+            // delete keys where user_id = $id
+            $this->Keys_model->delete_by_userid($id);
+
             $this->session->set_flashdata('message', 'Delete Record Success');
             redirect(site_url('user'));
         } else {

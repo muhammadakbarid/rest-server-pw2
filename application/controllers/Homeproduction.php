@@ -9,6 +9,7 @@ class Homeproduction extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Homeproduction_model');
+        $this->load->model('Film_model');
         $this->load->library('form_validation');
         $this->wmm->auth();
     }
@@ -231,6 +232,9 @@ class Homeproduction extends CI_Controller
 
         if ($row) {
             $this->Homeproduction_model->delete($id);
+            // delete film where id_homeproduction=$id
+            $this->Film_model->delete_by_id_homeproduction($id);
+
             $this->session->set_flashdata('message', 'Delete Record Success');
             redirect(site_url('homeproduction'));
         } else {

@@ -13,16 +13,12 @@
       var creditsyear = new Date();
       document.write(creditsyear.getFullYear());
     </script>
-    <a href="/privacy-policy.html" title="Privacy Policy">AdrianDroid</a>
+    <a href="<?= base_url(); ?>">WikiMovieMedia</a>
   </p>
 </footer>
 <!-- End Footer -->
 
-<!-- Button Float WhatsApp -->
-<a href="https://api.whatsapp.com/send?phone=628995676567&text=https://adrdroid.github.io%20%2D%20Hallo%20AdrianDroid%20&#128512" class="float-whatsapp" target="_blank" title="Chat WhatsApp">
-  <i class="bi bi-whatsapp float"></i>
-</a>
-<!-- End Float WhatsApp -->
+
 
 <!-- Vendor JS -->
 <script src="<?= base_url(); ?>/assets/vendor/aos/aos.js"></script>

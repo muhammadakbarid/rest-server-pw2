@@ -5,14 +5,14 @@
             <div class="col-md-4">
                 <?php echo anchor(site_url('user/create'), 'Create', 'class="btn btn-primary"'); ?>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="text-center col-md-4">
                 <div style="margin-top: 8px" id="message">
                     <?php echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : ''; ?>
                 </div>
             </div>
-            <div class="col-md-1 text-right">
+            <div class="text-right col-md-1">
             </div>
-            <div class="col-md-3 text-right">
+            <div class="text-right col-md-3">
                 <form action="<?php echo site_url('user/index'); ?>" class="form-inline" method="get">
                     <div class="input-group">
                         <input type="text" class="form-control" name="q" value="<?php echo $q; ?>">
@@ -35,6 +35,7 @@
                 <th>No</th>
                 <th>Nama</th>
                 <th>Email</th>
+                <th>Hak Akses</th>
                 <!-- <th>Password</th> -->
                 <th>Action</th>
             </tr><?php
@@ -44,6 +45,7 @@
                     <td width="80px"><?php echo ++$start ?></td>
                     <td><?php echo $user->nama ?></td>
                     <td><?php echo $user->email ?></td>
+                    <td><?php echo $user->hak_akses ?></td>
                     <!-- <td><?php echo $user->password ?></td> -->
                     <td style="text-align:center" width="200px">
                         <?php
@@ -63,7 +65,7 @@
             <div class="col-md-6">
                 <a href="#" class="btn btn-primary">Total Record : <?php echo $total_rows ?></a>
             </div>
-            <div class="col-md-6 text-right">
+            <div class="text-right col-md-6">
                 <?php echo $pagination ?>
             </div>
         </div>
