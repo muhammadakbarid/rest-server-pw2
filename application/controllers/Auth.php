@@ -12,7 +12,6 @@ class Auth extends CI_Controller
   public function index()
   {
     // clear flashdata
-    $this->session->set_flashdata('message', '');
     $this->load->view('auth/login');
     $this->wmm->auth_login();
   }
@@ -95,6 +94,7 @@ class Auth extends CI_Controller
   public function logout()
   {
     $this->session->sess_destroy();
+    $this->session->set_flashdata('message', 'Logout Berhasil');
     redirect('auth');
   }
 }

@@ -55,6 +55,7 @@ class User extends CI_Controller
                 'nama' => $row->nama,
                 'email' => $row->email,
                 'password' => $row->password,
+                'hak_akses' => $row->hak_akses,
             );
             $this->load->view('dashboard/header');
             $this->load->view('user/user_read', $data);

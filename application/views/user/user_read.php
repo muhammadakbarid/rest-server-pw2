@@ -11,8 +11,8 @@
                 <td><?php echo $email; ?></td>
             </tr>
             <tr>
-                <td>Password</td>
-                <td><?php echo $password; ?></td>
+                <td>Hak Akses</td>
+                <td><?php echo $hak_akses; ?></td>
             </tr>
             <tr>
                 <td></td>
