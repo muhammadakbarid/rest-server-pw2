@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2022 at 05:30 AM
+-- Generation Time: Feb 10, 2022 at 06:07 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -114,7 +114,10 @@ CREATE TABLE `keys` (
 
 INSERT INTO `keys` (`id`, `user_id`, `key`, `level`, `ignore_limits`, `is_private_key`, `ip_addresses`, `date_created`) VALUES
 (1, 1, '12345', 1, 0, 0, NULL, 1),
-(2, 10, '3cc041729650391fedf9bce7b48ace94', 1, 0, 0, NULL, 2147483647);
+(2, 10, '3cc041729650391fedf9bce7b48ace94', 1, 0, 0, NULL, 2147483647),
+(3, 12, '85dcaf749030a5a9d056313261a73568', 1, 0, 0, NULL, 2147483647),
+(4, 14, '4ab214613ee1d24f680027b574c9b5c4', 1, 0, 0, NULL, 2147483647),
+(5, 15, '4dff90c9e5f1ac83044ba0506a3ffd7d', 1, 0, 0, NULL, 2147483647);
 
 -- --------------------------------------------------------
 
@@ -137,7 +140,11 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id_user`, `nama`, `email`, `password`, `hak_akses`) VALUES
 (1, 'nazzilla ap', 'auliyanazzilla@gmail.com', '12345678', 'member'),
 (2, 'akbar', 'akbar@gmail.com', '12345678', 'admin'),
-(10, 'Muhammad Akbar', 'akbar@gmail.com', '$2y$10$PgceUWqbBZNhHFYHps7ui.nzEFTKeEUeY30nNoHsUN.6jruggLav6', 'member');
+(10, 'Muhammad Akbar', 'akbar@gmail.com', '$2y$10$PgceUWqbBZNhHFYHps7ui.nzEFTKeEUeY30nNoHsUN.6jruggLav6', 'member'),
+(12, 'Nazzilla', 'nazzilla@gmail.com', '$2y$10$THJn/pmPhbvjukHg5t7Uy.AhcAfha3nWcsZ4y4wBNNVjXZklEK9va', 'member'),
+(13, 'coba', 'coba@gmail.com', '$2y$10$2O4M40PG5JlfPpxOub5e1OzeZQ7KuLUDAFPSIT.p03q5PbPaaZVaa', 'member'),
+(14, 'coba', 'coba@gmail.com', '$2y$10$2O4M40PG5JlfPpxOub5e1OzeZQ7KuLUDAFPSIT.p03q5PbPaaZVaa', 'member'),
+(15, 'Muhammad Akbar', 'akbars@gmail.com', '$2y$10$vC3HLEYpOeQUAx5Zsqb3pOFEdZu6PgBDkYyxhrB1XRAXUvSQoffsS', 'member');
 
 --
 -- Indexes for dumped tables
@@ -187,13 +194,13 @@ ALTER TABLE `homeproduction`
 -- AUTO_INCREMENT for table `keys`
 --
 ALTER TABLE `keys`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
