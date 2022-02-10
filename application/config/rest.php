@@ -210,7 +210,12 @@ $config['auth_library_function'] = '';
 | Array of usernames and passwords for login, if ldap is configured this is ignored
 |
 */
-$config['rest_valid_logins'] = ['admin' => '1234'];
+$CI = &get_instance();
+$user = $CI->users_get();
+$config['rest_valid_logins'] = array();
+foreach ($user as $u) {
+    $config['rest_valid_logins'][$u->email] = $u->password;
+}
 
 /*
 |--------------------------------------------------------------------------

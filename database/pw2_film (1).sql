@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Feb 2022 pada 16.17
--- Versi server: 10.4.6-MariaDB
--- Versi PHP: 7.3.9
+-- Generation Time: Feb 10, 2022 at 05:33 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `film`
+-- Table structure for table `film`
 --
 
 CREATE TABLE `film` (
@@ -46,7 +45,7 @@ CREATE TABLE `film` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `film`
+-- Dumping data for table `film`
 --
 
 INSERT INTO `film` (`id_film`, `id_homeproduction`, `judul`, `producer`, `penulis_naskah`, `musik`, `cimatografi`, `editor`, `durasi`, `poster`, `bahasa`, `negara`, `rating`, `tahun_rilis`) VALUES
@@ -61,7 +60,7 @@ INSERT INTO `film` (`id_film`, `id_homeproduction`, `judul`, `producer`, `penuli
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `homeproduction`
+-- Table structure for table `homeproduction`
 --
 
 CREATE TABLE `homeproduction` (
@@ -80,7 +79,7 @@ CREATE TABLE `homeproduction` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `homeproduction`
+-- Dumping data for table `homeproduction`
 --
 
 INSERT INTO `homeproduction` (`id_homeproduction`, `nama`, `pemilik`, `tahun_berdiri`, `email`, `alamat`, `no_tlp`, `logo`, `website`, `instagram`, `facebook`, `twitter`) VALUES
@@ -94,7 +93,7 @@ INSERT INTO `homeproduction` (`id_homeproduction`, `nama`, `pemilik`, `tahun_ber
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `keys`
+-- Table structure for table `keys`
 --
 
 CREATE TABLE `keys` (
@@ -109,7 +108,7 @@ CREATE TABLE `keys` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `keys`
+-- Dumping data for table `keys`
 --
 
 INSERT INTO `keys` (`id`, `user_id`, `key`, `level`, `ignore_limits`, `is_private_key`, `ip_addresses`, `date_created`) VALUES
@@ -117,13 +116,14 @@ INSERT INTO `keys` (`id`, `user_id`, `key`, `level`, `ignore_limits`, `is_privat
 (2, 10, '3cc041729650391fedf9bce7b48ace94', 1, 0, 0, NULL, 2147483647),
 (3, 12, '85dcaf749030a5a9d056313261a73568', 1, 0, 0, NULL, 2147483647),
 (4, 14, '4ab214613ee1d24f680027b574c9b5c4', 1, 0, 0, NULL, 2147483647),
-(5, 15, '4dff90c9e5f1ac83044ba0506a3ffd7d', 1, 0, 0, NULL, 2147483647),
-(6, 16, '145d8e5826e22f0d941fbc132aa1d38d', 1, 0, 0, NULL, 2147483647);
+(5, 15, '4d6d993c138ffafb4286f1ddd4a032c8', 1, 0, 0, NULL, 2147483647),
+(6, 16, '145d8e5826e22f0d941fbc132aa1d38d', 1, 0, 0, NULL, 2147483647),
+(7, 17, 'aa4a909ecf28cf72ace4bd88a2015efa', 1, 0, 0, NULL, 2147483647);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -135,7 +135,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama`, `email`, `password`, `hak_akses`) VALUES
@@ -145,64 +145,65 @@ INSERT INTO `user` (`id_user`, `nama`, `email`, `password`, `hak_akses`) VALUES
 (12, 'nazzilla putri', 'nazzilla@gmail.com', '123456789', 'member'),
 (13, 'coba', 'coba@gmail.com', '$2y$10$2O4M40PG5JlfPpxOub5e1OzeZQ7KuLUDAFPSIT.p03q5PbPaaZVaa', 'member'),
 (14, 'coba', 'coba@gmail.com', '$2y$10$2O4M40PG5JlfPpxOub5e1OzeZQ7KuLUDAFPSIT.p03q5PbPaaZVaa', 'member'),
-(15, 'Muhammad Akbar', 'akbars@gmail.com', '$2y$10$vC3HLEYpOeQUAx5Zsqb3pOFEdZu6PgBDkYyxhrB1XRAXUvSQoffsS', 'member'),
-(16, 'nazzilla ap', 'nazzilla@gmail.com', '$2y$10$Pok4MUQmSBZPaSm8KI38QuuX1WkT6xzTufIADqfWlpwLsJWEI20se', 'member');
+(15, 'Muhammad Akbar', 'akbars@gmail.com', '$2y$10$IrrFVORZ71gT.VBkSbSxTOs0.jkbHeGd9xeKb9nrm0uF/jitRxWiC', 'member'),
+(16, 'nazzilla ap', 'nazzilla@gmail.com', '$2y$10$Pok4MUQmSBZPaSm8KI38QuuX1WkT6xzTufIADqfWlpwLsJWEI20se', 'member'),
+(17, 'onopus', 'onopus@gmail.com', '$2y$10$4B/VlEXpfIrWy8Im6MOTRuUwf9lvRiZNPCgj7hOyG0aUYpqR0wBmu', 'member');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `film`
+-- Indexes for table `film`
 --
 ALTER TABLE `film`
   ADD PRIMARY KEY (`id_film`);
 
 --
--- Indeks untuk tabel `homeproduction`
+-- Indexes for table `homeproduction`
 --
 ALTER TABLE `homeproduction`
   ADD PRIMARY KEY (`id_homeproduction`);
 
 --
--- Indeks untuk tabel `keys`
+-- Indexes for table `keys`
 --
 ALTER TABLE `keys`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `film`
+-- AUTO_INCREMENT for table `film`
 --
 ALTER TABLE `film`
   MODIFY `id_film` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT untuk tabel `homeproduction`
+-- AUTO_INCREMENT for table `homeproduction`
 --
 ALTER TABLE `homeproduction`
   MODIFY `id_homeproduction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `keys`
+-- AUTO_INCREMENT for table `keys`
 --
 ALTER TABLE `keys`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

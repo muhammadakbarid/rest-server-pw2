@@ -14,8 +14,16 @@ class Api extends RestController
         $this->load->model('Homeproduction_model');
     }
 
+    // get all user
+    public function users_get()
+    {
+        $this->load->model('User_model');
+        return $this->User_model->get_all();
+    }
+
     public function film_get()
     {
+
         // parameter id
         $id = $this->get('id');
 
@@ -155,6 +163,7 @@ class Api extends RestController
 
     public function film_delete()
     {
+
         $id = $this->delete('id');
 
         if ($id) {
