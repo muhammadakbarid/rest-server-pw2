@@ -12,12 +12,36 @@ class Wmm
   {
     $this->CI = &get_instance();
   }
-  public function auth()
-  {
-    $x = $this->CI->session->userdata('logged_in');
 
-    if (!$x) {
+  function auth()
+  {
+    $CI = &get_instance();
+    $verify = $this->verify();
+
+    if ($verify == false) {
+      $CI->session->set_flashdata('error', 'You are not authorized to access this page.');
       redirect('auth');
+    }
+  }
+
+  function auth_login()
+  {
+    $CI = &get_instance();
+    $verify = $this->verify();
+
+    if ($verify == true) {
+      redirect('dashboard');
+    }
+  }
+
+  function verify()
+  {
+    $CI = &get_instance();
+    $user_session_id = $CI->session->userdata('logged_in');
+    if ($user_session_id) {
+      return true;
+    } else {
+      return false;
     }
   }
 }

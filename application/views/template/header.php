@@ -60,15 +60,20 @@
           <li class="nav-item">
             <a class="nav-link" href="#services" title="Services">Services</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#gallery" title="Gallery">Gallery</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact" title="Contact">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#reviews" title="Reviews">Reviews</a>
-          </li>
+          <?php
+          // if login
+          if ($this->session->userdata('logged_in') == TRUE) {
+            echo '<li class="nav-item">
+            <a class="nav-link" href="' . base_url() . 'dashboard" title="Dashboard">Dashboard</a>
+          </li><li class="nav-item">
+          <a class="nav-link" href="' . base_url() . 'auth/logout" title="logout">logout</a>
+        </li>';
+          } else {
+            echo '<li class="nav-item">
+            <a class="nav-link" href="' . base_url() . 'auth/login" title="Login">Login</a>
+          </li>';
+          }
+          ?>
         </ul>
       </div>
     </div>

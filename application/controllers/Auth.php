@@ -12,10 +12,12 @@ class Auth extends CI_Controller
   public function index()
   {
     $this->load->view('auth/login');
+    $this->wmm->auth_login();
   }
 
   public function login()
   {
+
     $email = $this->input->post('email');
     $password = $this->input->post('password');
     $password = password_verify($password, PASSWORD_DEFAULT);
@@ -40,12 +42,12 @@ class Auth extends CI_Controller
       </div>');
       redirect('auth');
     }
-    exit;
   }
 
   // register
   public function register()
   {
+    $this->wmm->auth_login();
     $this->load->view('auth/register');
   }
 

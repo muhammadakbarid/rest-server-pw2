@@ -57,19 +57,7 @@
                   <button class="btn btn-primary float-end">Register</button>
                 </div>
               </form>
-              <div class="divider">
-                <div class="divider-text">OR</div>
-              </div>
-              <div class="row">
-                <div class="col-sm-6">
-                  <button class="mb-2 btn btn-block btn-primary"><i data-feather="facebook"></i>
-                    Facebook</button>
-                </div>
-                <div class="col-sm-6">
-                  <button class="mb-2 btn btn-block btn-secondary"><i data-feather="github"></i>
-                    Github</button>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>

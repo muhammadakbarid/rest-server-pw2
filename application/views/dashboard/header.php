@@ -23,10 +23,11 @@
     <div id="sidebar" class='active'>
       <div class="sidebar-wrapper active">
         <div class="sidebar-header">
-          <img src="<?= base_url('/'); ?>assets/img/logo.png" alt="">
+          <a href="<?= base_url(); ?>">
+            <img src="<?= base_url('/'); ?>assets/img/logo.png" alt="">
 
-          WMM
-
+            WMM
+          </a>
         </div>
         <div class="sidebar-menu">
           <ul class="menu">
