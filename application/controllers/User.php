@@ -212,6 +212,9 @@ class User extends CI_Controller
                 } else {
                     // password sama
                     // update data user
+                    // enkripsi password
+                    $password = password_hash($password, PASSWORD_DEFAULT);
+
                     $data = array(
                         'nama' => $this->input->post('nama', TRUE),
                         'email' => $this->input->post('email', TRUE),
@@ -304,6 +307,7 @@ class User extends CI_Controller
                 } else {
                     // password sama
                     // update data user
+                    $password = password_hash($password, PASSWORD_DEFAULT);
                     $data = array(
                         'nama' => $this->input->post('nama', TRUE),
                         'email' => $this->input->post('email', TRUE),

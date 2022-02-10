@@ -17,7 +17,7 @@
             <tr>
                 <td></td>
                 <td><a href="<?php echo site_url('user/edit_profile/') . $id_user ?>" class="btn btn-warning">Edit</a>
-                    <a href="<?php echo site_url('user') ?>" class="btn btn-secondary">Cancel</a>
+                    <a href="<?php echo site_url('user/profile') ?>" class="btn btn-secondary">Cancel</a>
                 </td>
             </tr>
         </table>
