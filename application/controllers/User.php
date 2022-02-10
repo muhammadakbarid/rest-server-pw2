@@ -54,11 +54,31 @@ class User extends CI_Controller
                 'id_user' => $row->id_user,
                 'nama' => $row->nama,
                 'email' => $row->email,
-                'password' => $row->password,
                 'hak_akses' => $row->hak_akses,
             );
             $this->load->view('dashboard/header');
             $this->load->view('user/user_read', $data);
+            $this->load->view('dashboard/footer');
+        } else {
+            $this->session->set_flashdata('message', 'Record Not Found');
+            redirect(site_url('user'));
+        }
+    }
+
+
+    public function profile()
+    {
+        $id = $this->session->userdata('id');
+        $row = $this->User_model->get_by_id($id);
+        if ($row) {
+            $data = array(
+                'id_user' => $row->id_user,
+                'nama' => $row->nama,
+                'email' => $row->email,
+                'hak_akses' => $row->hak_akses,
+            );
+            $this->load->view('dashboard/header');
+            $this->load->view('user/profile', $data);
             $this->load->view('dashboard/footer');
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
@@ -238,6 +258,69 @@ class User extends CI_Controller
 
         $this->form_validation->set_rules('id_user', 'id_user', 'trim');
         $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+    }
+
+
+    public function edit_profile($id)
+    {
+        $row = $this->User_model->get_by_id($id);
+
+        if ($row) {
+            $data = array(
+                'button' => 'Update',
+                'action' => site_url('user/edit_profile_action'),
+                'id_user' => set_value('id_user', $row->id_user),
+                'nama' => set_value('nama', $row->nama),
+                'email' => set_value('email', $row->email),
+                'hak_akses' => set_value('hak_akses', $row->hak_akses),
+            );
+            $this->load->view('dashboard/header');
+            $this->load->view('user/edit_profile', $data);
+            $this->load->view('dashboard/footer');
+        } else {
+            $this->session->set_flashdata('message', 'Record Not Found');
+            redirect(site_url('user/profile'));
+        }
+    }
+
+    public function edit_profile_action()
+    {
+        $this->_rules();
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->update($this->input->post('id_user', TRUE));
+        } else {
+            // jika user mengubah password
+            if ($this->input->post('password')) {
+                $password = $this->input->post('password');
+                $confirm_password = $this->input->post('confirm_password');
+
+                // chek password = confirm password
+                if ($password != $confirm_password) {
+                    // password tidak sama
+                    // set pesan error "Password tidak sama"
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password tidak sama</div>');
+                    redirect(base_url('user/edit_profile/' . $this->input->post('id_user', TRUE)));
+                } else {
+                    // password sama
+                    // update data user
+                    $data = array(
+                        'nama' => $this->input->post('nama', TRUE),
+                        'email' => $this->input->post('email', TRUE),
+                        'password' => $password,
+                    );
+                }
+            } else {
+                $data = array(
+                    'nama' => $this->input->post('nama', TRUE),
+                    'email' => $this->input->post('email', TRUE),
+                );
+            }
+
+            $this->User_model->update($this->input->post('id_user', TRUE), $data);
+            $this->session->set_flashdata('message', 'Update Record Success');
+            redirect(site_url('user/profile'));
+        }
     }
 }
 

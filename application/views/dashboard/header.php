@@ -70,7 +70,7 @@
               </a>
             </li>
             <li class="sidebar-item ">
-              <a href="form-layout.html" class='sidebar-link'>
+              <a href="<?= base_url('user/profile'); ?>" class='sidebar-link'>
                 <i data-feather="user" width="20"></i>
                 <span>Profil</span>
               </a>

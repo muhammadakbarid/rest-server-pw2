@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2022 at 03:52 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- Waktu pembuatan: 10 Feb 2022 pada 16.17
+-- Versi server: 10.4.6-MariaDB
+-- Versi PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -24,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `film`
+-- Struktur dari tabel `film`
 --
 
 CREATE TABLE `film` (
@@ -45,7 +46,7 @@ CREATE TABLE `film` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `film`
+-- Dumping data untuk tabel `film`
 --
 
 INSERT INTO `film` (`id_film`, `id_homeproduction`, `judul`, `producer`, `penulis_naskah`, `musik`, `cimatografi`, `editor`, `durasi`, `poster`, `bahasa`, `negara`, `rating`, `tahun_rilis`) VALUES
@@ -55,13 +56,12 @@ INSERT INTO `film` (`id_film`, `id_homeproduction`, `judul`, `producer`, `penuli
 (9, 6, 'The Batman', 'Dylan Clark', 'Matt Reeves', 'Michael Giacchino', 'Greig Fraser', 'William Hoy', '175 Minute', 'The_Batman_Official_Poster.jpg', 'English', 'United States', 'PG-13', 2022),
 (10, 6, 'Nope', 'Ian Cooper', 'Jordan Peele', 'Michael Abels', 'Hoyte van Hoytema', 'Daniel Kaluuya', '130 Minute', 'Nope_2022_Poster.jpg', 'English', 'United States', 'PG-13', 2022),
 (11, 7, 'The Desperate Hour', 'Andrew D. Corkin', 'Christopher Sparling', 'Fil Eisler', 'John Brawley', 'Lee Haugen', '85 Minutes', 'The_Desperate_Hour_Poster.jpg', 'English', 'United States', 'PG-13', 2022),
-(12, 8, 'Dog', 'Channing Tatum', 'Reid Carolin', 'Thomas Newman', 'Newton Thomas Sigel', 'Leslie Jones', '90 Minutes', 'Dog_Movie_Poster.jpg', 'English', 'United States', 'PG-13', 2022),
-(13, 1, 'Spider-Man: No Way Home', 'Amy Pascal', 'Chris McKenna', 'Michael Giacchino', 'Mauro Fiore', 'Jeffrey Ford', '148 menit', 'spiderman.jpg', 'Inggris', 'Amerika', 'PG-13', 2021);
+(12, 8, 'Dog', 'Channing Tatum', 'Reid Carolin', 'Thomas Newman', 'Newton Thomas Sigel', 'Leslie Jones', '90 Minutes', 'Dog_Movie_Poster.jpg', 'English', 'United States', 'PG-13', 2022);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `homeproduction`
+-- Struktur dari tabel `homeproduction`
 --
 
 CREATE TABLE `homeproduction` (
@@ -80,7 +80,7 @@ CREATE TABLE `homeproduction` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `homeproduction`
+-- Dumping data untuk tabel `homeproduction`
 --
 
 INSERT INTO `homeproduction` (`id_homeproduction`, `nama`, `pemilik`, `tahun_berdiri`, `email`, `alamat`, `no_tlp`, `logo`, `website`, `instagram`, `facebook`, `twitter`) VALUES
@@ -94,7 +94,7 @@ INSERT INTO `homeproduction` (`id_homeproduction`, `nama`, `pemilik`, `tahun_ber
 -- --------------------------------------------------------
 
 --
--- Table structure for table `keys`
+-- Struktur dari tabel `keys`
 --
 
 CREATE TABLE `keys` (
@@ -109,7 +109,7 @@ CREATE TABLE `keys` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `keys`
+-- Dumping data untuk tabel `keys`
 --
 
 INSERT INTO `keys` (`id`, `user_id`, `key`, `level`, `ignore_limits`, `is_private_key`, `ip_addresses`, `date_created`) VALUES
@@ -123,7 +123,7 @@ INSERT INTO `keys` (`id`, `user_id`, `key`, `level`, `ignore_limits`, `is_privat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -135,74 +135,74 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama`, `email`, `password`, `hak_akses`) VALUES
 (1, 'nazzilla ap', 'auliyanazzilla@gmail.com', '12345678', 'member'),
 (2, 'akbar', 'akbar@gmail.com', '12345678', 'admin'),
 (10, 'Muhammad Akbar', 'akbar@gmail.com', '$2y$10$PgceUWqbBZNhHFYHps7ui.nzEFTKeEUeY30nNoHsUN.6jruggLav6', 'member'),
-(12, 'Nazzilla', 'nazzilla@gmail.com', '$2y$10$THJn/pmPhbvjukHg5t7Uy.AhcAfha3nWcsZ4y4wBNNVjXZklEK9va', 'member'),
+(12, 'nazzilla putri', 'nazzilla@gmail.com', '123456789', 'member'),
 (13, 'coba', 'coba@gmail.com', '$2y$10$2O4M40PG5JlfPpxOub5e1OzeZQ7KuLUDAFPSIT.p03q5PbPaaZVaa', 'member'),
 (14, 'coba', 'coba@gmail.com', '$2y$10$2O4M40PG5JlfPpxOub5e1OzeZQ7KuLUDAFPSIT.p03q5PbPaaZVaa', 'member'),
 (15, 'Muhammad Akbar', 'akbars@gmail.com', '$2y$10$vC3HLEYpOeQUAx5Zsqb3pOFEdZu6PgBDkYyxhrB1XRAXUvSQoffsS', 'member'),
-(16, 'Nazzilla', 'nazzilla@gmail.com', 'password', 'admin');
+(16, 'nazzilla ap', 'nazzilla@gmail.com', '$2y$10$Pok4MUQmSBZPaSm8KI38QuuX1WkT6xzTufIADqfWlpwLsJWEI20se', 'member');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `film`
+-- Indeks untuk tabel `film`
 --
 ALTER TABLE `film`
   ADD PRIMARY KEY (`id_film`);
 
 --
--- Indexes for table `homeproduction`
+-- Indeks untuk tabel `homeproduction`
 --
 ALTER TABLE `homeproduction`
   ADD PRIMARY KEY (`id_homeproduction`);
 
 --
--- Indexes for table `keys`
+-- Indeks untuk tabel `keys`
 --
 ALTER TABLE `keys`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `film`
+-- AUTO_INCREMENT untuk tabel `film`
 --
 ALTER TABLE `film`
   MODIFY `id_film` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `homeproduction`
+-- AUTO_INCREMENT untuk tabel `homeproduction`
 --
 ALTER TABLE `homeproduction`
   MODIFY `id_homeproduction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `keys`
+-- AUTO_INCREMENT untuk tabel `keys`
 --
 ALTER TABLE `keys`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
