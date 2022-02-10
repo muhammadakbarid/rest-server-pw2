@@ -5,6 +5,8 @@ class Dashboard extends CI_Controller
   public function __construct()
   {
     parent::__construct();
+
+    $this->wmm->auth();
     // $this->load->
     // $this->load->model('m_dashboard');
   }

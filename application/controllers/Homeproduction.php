@@ -10,6 +10,7 @@ class Homeproduction extends CI_Controller
         parent::__construct();
         $this->load->model('Homeproduction_model');
         $this->load->library('form_validation');
+        $this->wmm->auth();
     }
 
     public function index()

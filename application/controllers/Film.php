@@ -11,6 +11,7 @@ class Film extends CI_Controller
         $this->load->model('Film_model');
         $this->load->model('Homeproduction_model');
         $this->load->library('form_validation');
+        $this->wmm->auth();
     }
 
     public function index()
