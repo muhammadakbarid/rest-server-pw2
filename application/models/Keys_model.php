@@ -28,33 +28,40 @@ class Keys_model extends CI_Model
         $this->db->where($this->id, $id);
         return $this->db->get($this->table)->row();
     }
-    
+    function get_by_userid($userid)
+    {
+        $this->db->where('user_id', $userid);
+        return $this->db->get($this->table)->row();
+    }
+
     // get total rows
-    function total_rows($q = NULL) {
+    function total_rows($q = NULL)
+    {
         $this->db->like('id', $q);
-	$this->db->or_like('user_id', $q);
-	$this->db->or_like('key', $q);
-	$this->db->or_like('level', $q);
-	$this->db->or_like('ignore_limits', $q);
-	$this->db->or_like('is_private_key', $q);
-	$this->db->or_like('ip_addresses', $q);
-	$this->db->or_like('date_created', $q);
-	$this->db->from($this->table);
+        $this->db->or_like('user_id', $q);
+        $this->db->or_like('key', $q);
+        $this->db->or_like('level', $q);
+        $this->db->or_like('ignore_limits', $q);
+        $this->db->or_like('is_private_key', $q);
+        $this->db->or_like('ip_addresses', $q);
+        $this->db->or_like('date_created', $q);
+        $this->db->from($this->table);
         return $this->db->count_all_results();
     }
 
     // get data with limit and search
-    function get_limit_data($limit, $start = 0, $q = NULL) {
+    function get_limit_data($limit, $start = 0, $q = NULL)
+    {
         $this->db->order_by($this->id, $this->order);
         $this->db->like('id', $q);
-	$this->db->or_like('user_id', $q);
-	$this->db->or_like('key', $q);
-	$this->db->or_like('level', $q);
-	$this->db->or_like('ignore_limits', $q);
-	$this->db->or_like('is_private_key', $q);
-	$this->db->or_like('ip_addresses', $q);
-	$this->db->or_like('date_created', $q);
-	$this->db->limit($limit, $start);
+        $this->db->or_like('user_id', $q);
+        $this->db->or_like('key', $q);
+        $this->db->or_like('level', $q);
+        $this->db->or_like('ignore_limits', $q);
+        $this->db->or_like('is_private_key', $q);
+        $this->db->or_like('ip_addresses', $q);
+        $this->db->or_like('date_created', $q);
+        $this->db->limit($limit, $start);
         return $this->db->get($this->table)->result();
     }
 
@@ -77,7 +84,6 @@ class Keys_model extends CI_Model
         $this->db->where($this->id, $id);
         $this->db->delete($this->table);
     }
-
 }
 
 /* End of file Keys_model.php */

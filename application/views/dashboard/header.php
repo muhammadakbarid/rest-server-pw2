@@ -63,7 +63,7 @@
             <li class='sidebar-title'>User</li>
 
             <li class="sidebar-item ">
-              <a href="form-layout.html" class='sidebar-link'>
+              <a href="<?= base_url('user/api'); ?>" class='sidebar-link'>
                 <i data-feather="code" width="20"></i>
                 <span>Api Key</span>
               </a>

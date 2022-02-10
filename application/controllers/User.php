@@ -9,6 +9,7 @@ class User extends CI_Controller
     {
         parent::__construct();
         $this->load->model('User_model');
+        $this->load->model('Keys_model');
         $this->load->library('form_validation');
     }
 
@@ -58,6 +59,50 @@ class User extends CI_Controller
             $this->load->view('dashboard/header');
             $this->load->view('user/user_read', $data);
             $this->load->view('dashboard/footer');
+        } else {
+            $this->session->set_flashdata('message', 'Record Not Found');
+            redirect(site_url('user'));
+        }
+    }
+
+    public function api()
+    {
+
+        // session userid
+        $userid = $this->session->userdata('id');
+
+        $row = $this->Keys_model->get_by_userid($userid);
+
+        if ($row) {
+            $data = array(
+                'key' => $row->key,
+            );
+            $this->load->view('dashboard/header');
+            $this->load->view('user/api', $data);
+            $this->load->view('dashboard/footer');
+        } else {
+            $this->session->set_flashdata('message', 'Record Not Found');
+            redirect(site_url('user'));
+        }
+    }
+
+    public function apigenerate()
+    {
+        // session userid
+        $userid = $this->session->userdata('id');
+        $row = $this->Keys_model->get_by_userid($userid);
+
+
+        if ($row) {
+            $api_key = md5(uniqid(rand(), true));
+
+            $data_keys = [
+                'key' => $api_key,
+            ];
+
+            $this->Keys_model->update($row->id, $data_keys);
+
+            redirect('user/api');
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('user'));

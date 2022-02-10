@@ -27,7 +27,7 @@ class Auth extends CI_Controller
         'email' => $user->email,
         'nama' => $user->nama,
         'hak_akses' => $user->hak_akses,
-        'id' => $user->id,
+        'id' => $user->id_user,
         'logged_in' => true
       ];
 
@@ -65,12 +65,12 @@ class Auth extends CI_Controller
         'password' => $password,
       ];
 
-      $this->User_model->insert($data);
+      $user_id = $this->User_model->insert($data);
       // generate random api key to keys table
       $api_key = md5(uniqid(rand(), true));
       $data_keys = [
         'key' => $api_key,
-        'user_id' => $this->User_model->insert($data)
+        'user_id' => $user_id
       ];
 
       $this->Keys_model->insert($data_keys);
