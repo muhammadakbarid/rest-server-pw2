@@ -73,7 +73,7 @@
                   <div class="form-group position-relative has-icon-left">
                     <label for="email">email</label>
                     <div class="position-relative">
-                      <input type="text" class="form-control" id="email" name="email">
+                      <input required type="text" class="form-control" id="email" name="email">
                       <div class="form-control-icon">
                         <i data-feather="user"></i>
                       </div>
@@ -87,7 +87,7 @@
                 </a> -->
                     </div>
                     <div class="position-relative">
-                      <input type="password" class="form-control" id="password" name="password">
+                      <input required type="password" class="form-control" id="password" name="password">
                       <div class="form-control-icon">
                         <i data-feather="lock"></i>
                       </div>

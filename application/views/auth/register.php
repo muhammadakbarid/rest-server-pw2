@@ -62,25 +62,25 @@
                     <div class="col-md-6 col-12">
                       <div class="form-group">
                         <label for="first-name-column">Name</label>
-                        <input type="text" id="first-name-column" class="form-control" name="nama">
+                        <input required type="text" id="first-name-column" class="form-control" name="nama">
                       </div>
                     </div>
                     <div class="col-md-6 col-12">
                       <div class="form-group">
                         <label for="email-id-column">Email</label>
-                        <input type="email" id="email-id-column" class="form-control" name="email">
+                        <input required type="email" id="email-id-column" class="form-control" name="email">
                       </div>
                     </div>
                     <div class="col-md-6 col-12">
                       <div class="form-group">
                         <label for="password-id-column">password</label>
-                        <input type="password" id="password-id-column" class="form-control" name="password">
+                        <input required type="password" id="password-id-column" class="form-control" name="password">
                       </div>
                     </div>
                     <div class="col-md-6 col-12">
                       <div class="form-group">
                         <label for="confirm_password-id-column">confirm password</label>
-                        <input type="password" id="confirm_password-id-column" class="form-control" name="confirm_password">
+                        <input required type="password" id="confirm_password-id-column" class="form-control" name="confirm_password">
                       </div>
                     </div>
                   </diV>

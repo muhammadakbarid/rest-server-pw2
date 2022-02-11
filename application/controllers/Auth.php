@@ -54,39 +54,44 @@ class Auth extends CI_Controller
   // register action
   public function register_action()
   {
+    $this->_rules();
     $nama = $this->input->post('nama');
     $email = $this->input->post('email');
     $password = $this->input->post('password');
     $confirm_password = $this->input->post('confirm_password');
 
-    if ($password == $confirm_password) {
-      $password = password_hash($password, PASSWORD_DEFAULT);
-      $data = [
-        'nama' => $nama,
-        'email' => $email,
-        'password' => $password,
-      ];
+    if ($this->form_validation->run() == FALSE) {
+      $this->register();
+    } else {
+      if ($password == $confirm_password) {
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        $data = [
+          'nama' => $nama,
+          'email' => $email,
+          'password' => $password,
+        ];
 
-      $user_id = $this->User_model->insert($data);
-      // generate random api key to keys table
-      $api_key = md5(uniqid(rand(), true));
-      $data_keys = [
-        'key' => $api_key,
-        'user_id' => $user_id
-      ];
+        $user_id = $this->User_model->insert($data);
+        // generate random api key to keys table
+        $api_key = md5(uniqid(rand(), true));
+        $data_keys = [
+          'key' => $api_key,
+          'user_id' => $user_id
+        ];
 
-      $this->Keys_model->insert($data_keys);
+        $this->Keys_model->insert($data_keys);
 
 
-      $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
       Registrasi berhasil! Silahkan login.
       </div>');
-      redirect('auth');
-    } else {
-      $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+        redirect('auth');
+      } else {
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
       Password tidak sama!
       </div>');
-      redirect('auth/register');
+        redirect('auth/register');
+      }
     }
   }
 
@@ -95,5 +100,14 @@ class Auth extends CI_Controller
     $this->session->sess_destroy();
     $this->session->set_flashdata('message', 'Logout Berhasil');
     redirect('auth');
+  }
+
+  public function _rules()
+  {
+    $this->form_validation->set_rules('nama', 'nama', 'trim|required');
+    $this->form_validation->set_rules('email', 'email', 'trim|required');
+    $this->form_validation->set_rules('password', 'password', 'trim|required');
+    $this->form_validation->set_rules('confirm_password', 'confirm_password', 'trim|required');
+    $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
   }
 }
