@@ -153,10 +153,14 @@ class User extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->create();
         } else {
+            $password = $this->input->post('password', TRUE);
+            // hash password
+            $password = password_hash($password, PASSWORD_DEFAULT);
             $data = array(
                 'nama' => $this->input->post('nama', TRUE),
                 'email' => $this->input->post('email', TRUE),
-                'password' => $this->input->post('password', TRUE),
+                'password' => $password,
+                'hak_akses' => $this->input->post('hak_akses', TRUE),
             );
 
             $this->User_model->insert($data);

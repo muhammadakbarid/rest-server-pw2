@@ -39,28 +39,29 @@
                 <span>Dashboard</span>
               </a>
             </li>
+            <!-- if user admin login -->
+            <?php if ($this->session->userdata('hak_akses') == "admin") : ?>
+              <li class='sidebar-title'>Admin</li>
 
-            <li class='sidebar-title'>Admin</li>
-
-            <li class="sidebar-item ">
-              <a href="<?= base_url('film'); ?>" class='sidebar-link'>
-                <i data-feather="film" width="20"></i>
-                <span>Data Film</span>
-              </a>
-            </li>
-            <li class="sidebar-item ">
-              <a href="<?= base_url('homeproduction'); ?>" class='sidebar-link'>
-                <i data-feather="home" width="20"></i>
-                <span>Data Home Production</span>
-              </a>
-            </li>
-            <li class="sidebar-item ">
-              <a href="<?= base_url('user'); ?>" class='sidebar-link'>
-                <i data-feather="users" width="20"></i>
-                <span>Data User</span>
-              </a>
-            </li>
-
+              <li class="sidebar-item ">
+                <a href="<?= base_url('film'); ?>" class='sidebar-link'>
+                  <i data-feather="film" width="20"></i>
+                  <span>Data Film</span>
+                </a>
+              </li>
+              <li class="sidebar-item ">
+                <a href="<?= base_url('homeproduction'); ?>" class='sidebar-link'>
+                  <i data-feather="home" width="20"></i>
+                  <span>Data Home Production</span>
+                </a>
+              </li>
+              <li class="sidebar-item ">
+                <a href="<?= base_url('user'); ?>" class='sidebar-link'>
+                  <i data-feather="users" width="20"></i>
+                  <span>Data User</span>
+                </a>
+              </li>
+            <?php endif; ?>
             <li class='sidebar-title'>User</li>
 
             <li class="sidebar-item ">
@@ -104,6 +105,7 @@
                 <div class="d-none d-md-block d-lg-inline-block"><?= $this->session->userdata('nama'); ?></div>
               </a>
               <div class="dropdown-menu dropdown-menu-right">
+                <span class="dropdown-item"><?= $this->session->userdata('hak_akses'); ?></span>
                 <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="<?= base_url('auth/logout'); ?>"><i data-feather="log-out"></i> Logout</a>

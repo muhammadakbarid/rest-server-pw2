@@ -22,6 +22,19 @@ class User_model extends CI_Model
         return $this->db->get($this->table)->row();
     }
 
+    // cek email sudah ada atau belum
+    function check_email($email)
+    {
+        $this->db->where('email', $email);
+        $query = $this->db->get($this->table);
+
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
     // get all
     function get_all()
     {

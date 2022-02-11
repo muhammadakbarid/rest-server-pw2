@@ -58,7 +58,15 @@
                   <p>Please fill the form to register.</p>
                 </div>
                 <form action="<?= base_url('auth/register_action'); ?>" method="POST">
+
                   <div class="row">
+                    <div class="form-group">
+                      <?php
+                      if ($this->session->flashdata('message')) { ?>
+                        <?= $this->session->flashdata('message'); ?>
+                      <?php } ?>
+
+                    </div>
                     <div class="col-md-6 col-12">
                       <div class="form-group">
                         <label for="first-name-column">Name</label>

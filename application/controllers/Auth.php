@@ -60,36 +60,49 @@ class Auth extends CI_Controller
     $password = $this->input->post('password');
     $confirm_password = $this->input->post('confirm_password');
 
+
+
     if ($this->form_validation->run() == FALSE) {
       $this->register();
     } else {
-      if ($password == $confirm_password) {
-        $password = password_hash($password, PASSWORD_DEFAULT);
-        $data = [
-          'nama' => $nama,
-          'email' => $email,
-          'password' => $password,
-        ];
 
-        $user_id = $this->User_model->insert($data);
-        // generate random api key to keys table
-        $api_key = md5(uniqid(rand(), true));
-        $data_keys = [
-          'key' => $api_key,
-          'user_id' => $user_id
-        ];
+      // check_email
+      $check_email = $this->User_model->check_email($email);
 
-        $this->Keys_model->insert($data_keys);
+      if ($check_email == FALSE) {
+        if ($password == $confirm_password) {
+          $password = password_hash($password, PASSWORD_DEFAULT);
+          $data = [
+            'nama' => $nama,
+            'email' => $email,
+            'password' => $password,
+          ];
+
+          $user_id = $this->User_model->insert($data);
+          // generate random api key to keys table
+          $api_key = md5(uniqid(rand(), true));
+          $data_keys = [
+            'key' => $api_key,
+            'user_id' => $user_id
+          ];
+
+          $this->Keys_model->insert($data_keys);
 
 
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-      Registrasi berhasil! Silahkan login.
-      </div>');
-        redirect('auth');
+          $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+        Registrasi berhasil! Silahkan login.
+        </div>');
+          redirect('auth');
+        } else {
+          $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+        Password tidak sama!
+        </div>');
+          redirect('auth/register');
+        }
       } else {
         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-      Password tidak sama!
-      </div>');
+        Email sudah terdaftar!
+        </div>');
         redirect('auth/register');
       }
     }

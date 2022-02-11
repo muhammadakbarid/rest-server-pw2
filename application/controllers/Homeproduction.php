@@ -235,6 +235,17 @@ class Homeproduction extends CI_Controller
             // delete film where id_homeproduction=$id
             $this->Film_model->delete_by_id_homeproduction($id);
 
+            // unlink logo
+            $temp = "assets/img/logo/";
+            if (!file_exists($temp))
+                mkdir($temp);
+
+            $file = $temp . $row->logo;
+            if (file_exists($file)) {
+                unlink($file);
+            }
+
+
             $this->session->set_flashdata('message', 'Delete Record Success');
             redirect(site_url('homeproduction'));
         } else {

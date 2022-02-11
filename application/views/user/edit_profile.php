@@ -6,11 +6,12 @@
             <?php echo $this->session->flashdata('message') ?>
             <div class="form-group">
                 <label for="varchar">Nama <?php echo form_error('nama') ?></label>
-                <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama" value="<?php echo $nama; ?>" />
+                <input required type="text" class="form-control" name="nama" id="nama" placeholder="Nama" value="<?php echo $nama; ?>" />
             </div>
             <div class="form-group">
                 <label for="varchar">Email <?php echo form_error('email') ?></label>
-                <input type="text" class="form-control" name="email" id="email" placeholder="Email" value="<?php echo $email; ?>" />
+                <input disabled type="text" class="form-control" value="<?php echo $email; ?>" />
+                <input type="hidden" class="form-control" name="email" id="email" placeholder="Email" value="<?php echo $email; ?>" />
             </div>
 
             <div class="row">

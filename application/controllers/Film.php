@@ -255,6 +255,16 @@ class Film extends CI_Controller
         if ($row) {
             $this->Film_model->delete($id);
             $this->session->set_flashdata('message', 'Delete Record Success');
+            // unlink image
+            $temp = "assets/img/";
+            if (!file_exists($temp))
+                mkdir($temp);
+            $file = $temp . $row->poster;
+            if (file_exists($file)) {
+                unlink($file);
+            }
+
+
             redirect(site_url('film'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
