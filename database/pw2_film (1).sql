@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2022 at 05:33 PM
+-- Generation Time: Feb 14, 2022 at 08:34 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -112,13 +112,9 @@ CREATE TABLE `keys` (
 --
 
 INSERT INTO `keys` (`id`, `user_id`, `key`, `level`, `ignore_limits`, `is_private_key`, `ip_addresses`, `date_created`) VALUES
-(1, 1, '12345', 1, 0, 0, NULL, 1),
-(2, 10, '3cc041729650391fedf9bce7b48ace94', 1, 0, 0, NULL, 2147483647),
-(3, 12, '85dcaf749030a5a9d056313261a73568', 1, 0, 0, NULL, 2147483647),
-(4, 14, '4ab214613ee1d24f680027b574c9b5c4', 1, 0, 0, NULL, 2147483647),
-(5, 15, '4d6d993c138ffafb4286f1ddd4a032c8', 1, 0, 0, NULL, 2147483647),
-(6, 16, '145d8e5826e22f0d941fbc132aa1d38d', 1, 0, 0, NULL, 2147483647),
-(7, 17, 'aa4a909ecf28cf72ace4bd88a2015efa', 1, 0, 0, NULL, 2147483647);
+(10, 30, 'fd223c3150e746728310cdd8e8c4db8c', 1, 0, 0, NULL, 2147483647),
+(11, 31, '050aefed4c76d7e753aedb4bb4629cb0', 1, 0, 0, NULL, 2147483647),
+(12, 32, '96be45225508bf75b9f121a19f3a0107', 1, 0, 0, NULL, 2147483647);
 
 -- --------------------------------------------------------
 
@@ -139,15 +135,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nama`, `email`, `password`, `hak_akses`) VALUES
-(1, 'nazzilla ap', 'auliyanazzilla@gmail.com', '12345678', 'member'),
-(2, 'akbar', 'akbar@gmail.com', '12345678', 'admin'),
-(10, 'Muhammad Akbar', 'akbar@gmail.com', '$2y$10$PgceUWqbBZNhHFYHps7ui.nzEFTKeEUeY30nNoHsUN.6jruggLav6', 'member'),
-(12, 'nazzilla putri', 'nazzilla@gmail.com', '123456789', 'member'),
-(13, 'coba', 'coba@gmail.com', '$2y$10$2O4M40PG5JlfPpxOub5e1OzeZQ7KuLUDAFPSIT.p03q5PbPaaZVaa', 'member'),
-(14, 'coba', 'coba@gmail.com', '$2y$10$2O4M40PG5JlfPpxOub5e1OzeZQ7KuLUDAFPSIT.p03q5PbPaaZVaa', 'member'),
-(15, 'Muhammad Akbar', 'akbars@gmail.com', '$2y$10$IrrFVORZ71gT.VBkSbSxTOs0.jkbHeGd9xeKb9nrm0uF/jitRxWiC', 'member'),
-(16, 'nazzilla ap', 'nazzilla@gmail.com', '$2y$10$Pok4MUQmSBZPaSm8KI38QuuX1WkT6xzTufIADqfWlpwLsJWEI20se', 'member'),
-(17, 'onopus', 'onopus@gmail.com', '$2y$10$4B/VlEXpfIrWy8Im6MOTRuUwf9lvRiZNPCgj7hOyG0aUYpqR0wBmu', 'member');
+(30, 'Akbar', 'akbar@gmail.com', '$2y$10$U45/sDrLtIcWt9uY71.v7OfvMO18d/fdvCmDkCdsh4tenQU/RS0Wm', 'admin'),
+(31, 'Nazzilla', 'nazzilla@gmail.com', '$2y$10$FAzBrBLSQvtx3l5h53BwFeH.hcvNByu0T/TFX97h4umayL4/4Os/S', 'admin'),
+(32, 'member', 'member@gmail.com', '$2y$10$ZsAxqzMYd/pDy/EKZs72KOYy24nXhb6NGuekkZed1FE5oQagADUve', 'member');
 
 --
 -- Indexes for dumped tables
@@ -185,25 +175,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `film`
 --
 ALTER TABLE `film`
-  MODIFY `id_film` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_film` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `homeproduction`
 --
 ALTER TABLE `homeproduction`
-  MODIFY `id_homeproduction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_homeproduction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `keys`
 --
 ALTER TABLE `keys`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

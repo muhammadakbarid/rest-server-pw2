@@ -94,6 +94,7 @@ class User extends CI_Controller
 
         $row = $this->Keys_model->get_by_userid($userid);
 
+
         if ($row) {
             $data = array(
                 'key' => $row->key,
@@ -103,7 +104,7 @@ class User extends CI_Controller
             $this->load->view('dashboard/footer');
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('user'));
+            redirect(site_url('dashboard'));
         }
     }
 
@@ -163,7 +164,15 @@ class User extends CI_Controller
                 'hak_akses' => $this->input->post('hak_akses', TRUE),
             );
 
-            $this->User_model->insert($data);
+            $user_id = $this->User_model->insert($data);
+            $api_key = md5(uniqid(rand(), true));
+            $data_keys = [
+                'key' => $api_key,
+                'user_id' => $user_id
+            ];
+
+            $this->Keys_model->insert($data_keys);
+
             $this->session->set_flashdata('message', 'Create Record Success');
             redirect(site_url('user'));
         }

@@ -33,15 +33,6 @@
   <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/fontawesome.min.css">
 
 
-  <!-- =========================================================
-    * Template Name : Navy Blue- v1.0
-    * Author        : AdrianDroid
-    * Facebook      : https://www.facebook.com/adriandroids
-    * Instagram     : https://www.instagram.com/adriandroids
-    * Blogger       : https://adriandroidz.blogspot.com
-    * YouTube       : https://www.youtube.com/adriandroid
-    ========================================================== -->
-
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbarNav">
