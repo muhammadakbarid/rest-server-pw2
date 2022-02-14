@@ -44,10 +44,25 @@ class User extends CI_Controller
         $this->load->view('dashboard/header');
         $this->load->view('user/user_list', $data);
         $this->load->view('dashboard/footer');
+
+        $admin = $this->wmm->is_admin();
+
+        // if admin false redirect to 404
+
+        if ($admin == false) {
+            redirect('404');
+        }
     }
 
     public function read($id)
     {
+        $admin = $this->wmm->is_admin();
+
+        // if admin false redirect to 404
+
+        if ($admin == false) {
+            redirect('404');
+        }
         $row = $this->User_model->get_by_id($id);
         if ($row) {
             $data = array(
@@ -133,6 +148,14 @@ class User extends CI_Controller
 
     public function create()
     {
+
+        $admin = $this->wmm->is_admin();
+
+        // if admin false redirect to 404
+
+        if ($admin == false) {
+            redirect('404');
+        }
         $data = array(
             'button' => 'Create',
             'action' => site_url('user/create_action'),
@@ -149,6 +172,13 @@ class User extends CI_Controller
 
     public function create_action()
     {
+        $admin = $this->wmm->is_admin();
+
+        // if admin false redirect to 404
+
+        if ($admin == false) {
+            redirect('404');
+        }
         $this->_rules();
 
         if ($this->form_validation->run() == FALSE) {
@@ -180,6 +210,13 @@ class User extends CI_Controller
 
     public function update($id)
     {
+        $admin = $this->wmm->is_admin();
+
+        // if admin false redirect to 404
+
+        if ($admin == false) {
+            redirect('404');
+        }
         $row = $this->User_model->get_by_id($id);
 
         if ($row) {
@@ -202,6 +239,13 @@ class User extends CI_Controller
 
     public function update_action()
     {
+        $admin = $this->wmm->is_admin();
+
+        // if admin false redirect to 404
+
+        if ($admin == false) {
+            redirect('404');
+        }
         $this->_rules();
 
         $hak_akses = $this->input->post('hak_akses', TRUE);
@@ -251,6 +295,13 @@ class User extends CI_Controller
 
     public function delete($id)
     {
+        $admin = $this->wmm->is_admin();
+
+        // if admin false redirect to 404
+
+        if ($admin == false) {
+            redirect('404');
+        }
         $row = $this->User_model->get_by_id($id);
 
         if ($row) {

@@ -24,6 +24,19 @@ class Wmm
     }
   }
 
+  function is_admin()
+  {
+    $CI = &get_instance();
+    $hak_akses = $CI->session->userdata('hak_akses');
+
+    // if $admin is not true
+    if ($hak_akses != 'admin') {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   function auth_login()
   {
     $CI = &get_instance();

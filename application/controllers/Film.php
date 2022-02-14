@@ -12,6 +12,13 @@ class Film extends CI_Controller
         $this->load->model('Homeproduction_model');
         $this->load->library('form_validation');
         $this->wmm->auth();
+        $admin = $this->wmm->is_admin();
+
+        // if admin false redirect to 404
+
+        if ($admin == false) {
+            redirect('404');
+        }
     }
 
     public function index()
