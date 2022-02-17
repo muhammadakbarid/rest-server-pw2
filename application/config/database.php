@@ -73,12 +73,28 @@
 $active_group = 'default';
 $query_builder = TRUE;
 
+$whitelist = array(
+	'127.0.0.1',
+	'localhost',
+	'::1'
+);
+if (in_array($_SERVER['REMOTE_ADDR'], $whitelist)) {
+	$u_db = 'root';
+	$p_db = '';
+	$n_db = 'pw2_film';
+} else {
+	//Users: aplikami_ulogin, aplikami_udemo_trucking
+	$u_db = 'muhakbar_admin';
+	$p_db = 'nokiax202samsungj2';
+	$n_db = 'muhakbar_api';
+}
+
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'pw2_film',
+	'username' => $u_db,
+	'password' => $p_db,
+	'database' => $n_db,
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
