@@ -78,29 +78,58 @@ class Api extends RestController
         $cimatografi = $this->post('cimatografi');
         $editor = $this->post('editor');
         $durasi = $this->post('durasi');
-        $poster = $this->post('poster');
+        $poster = $_FILES['poster'];
         $bahasa = $this->post('bahasa');
         $negara = $this->post('negara');
         $rating = $this->post('rating');
         $tahun_rilis = $this->post('tahun_rilis');
 
-        $film = [
-            'id_homeproduction' => $id_homeproduction,
-            'judul' => $judul,
-            'producer' => $producer,
-            'penulis_naskah' => $penulis_naskah,
-            'musik' => $musik,
-            'cimatografi' => $cimatografi,
-            'editor' => $editor,
-            'durasi' => $durasi,
-            'poster' => $poster,
-            'bahasa' => $bahasa,
-            'negara' => $negara,
-            'rating' => $rating,
-            'tahun_rilis' => $tahun_rilis
-        ];
 
-        if ($id_homeproduction  && $judul && $producer && $penulis_naskah && $musik && $cimatografi && $editor && $durasi && $poster && $bahasa && $negara && $rating && $tahun_rilis) {
+        if ($poster && $id_homeproduction  && $judul && $producer && $penulis_naskah && $musik && $cimatografi && $editor && $durasi && $bahasa && $negara && $rating && $tahun_rilis) {
+
+            // upload poster
+            $temp = "assets/img/";
+            if (!file_exists($temp))
+                mkdir($temp);
+
+            // $nama_file       = $_POST['poster'];
+            $fileupload      = $_FILES['poster']['tmp_name'];
+            $ImageName       = $_FILES['poster']['name'];
+            $ImageType       = $_FILES['poster']['type'];
+
+            if (!empty($fileupload)) {
+                $ImageExt       = substr($ImageName, strrpos($ImageName, '.'));
+                $ImageExt       = str_replace('.', '', $ImageExt); // Extension
+                $ImageName      = preg_replace("/\.[^.\s]{3,4}$/", "", $ImageName);
+                $NewImageName   = str_replace(' ', '', $ImageName) . '.' . $ImageExt;
+
+                move_uploaded_file($_FILES["poster"]["tmp_name"], $temp . $NewImageName); // Menyimpan file
+
+                // echo "Data Berhasil Diupload";
+                $poster = $NewImageName;
+            } else {
+                $this->response([
+                    'status' => false,
+                    'message' => 'data film gagal ditambahkan, foto gagal di upload'
+                ], 400);
+            }
+
+            $film = [
+                'id_homeproduction' => $id_homeproduction,
+                'judul' => $judul,
+                'producer' => $producer,
+                'penulis_naskah' => $penulis_naskah,
+                'musik' => $musik,
+                'cimatografi' => $cimatografi,
+                'editor' => $editor,
+                'durasi' => $durasi,
+                'poster' => $poster,
+                'bahasa' => $bahasa,
+                'negara' => $negara,
+                'rating' => $rating,
+                'tahun_rilis' => $tahun_rilis
+            ];
+
             $this->Film_model->insert($film);
             $this->response([
                 'status' => true,
@@ -125,29 +154,56 @@ class Api extends RestController
         $cimatografi = $this->put('cimatografi');
         $editor = $this->put('editor');
         $durasi = $this->put('durasi');
-        $poster = $this->put('poster');
+        $poster = $_FILES['poster'];
         $bahasa = $this->put('bahasa');
         $negara = $this->put('negara');
         $rating = $this->put('rating');
         $tahun_rilis = $this->put('tahun_rilis');
 
-        $film = [
-            'id_homeproduction' => $id_homeproduction,
-            'judul' => $judul,
-            'producer' => $producer,
-            'penulis_naskah' => $penulis_naskah,
-            'musik' => $musik,
-            'cimatografi' => $cimatografi,
-            'editor' => $editor,
-            'durasi' => $durasi,
-            'poster' => $poster,
-            'bahasa' => $bahasa,
-            'negara' => $negara,
-            'rating' => $rating,
-            'tahun_rilis' => $tahun_rilis
-        ];
 
-        if ($id_homeproduction  && $judul && $producer && $penulis_naskah && $musik && $cimatografi && $editor && $durasi && $poster && $bahasa && $negara && $rating && $tahun_rilis) {
+
+        if ($id_homeproduction  && $judul && $producer && $penulis_naskah && $musik && $cimatografi && $editor && $durasi && $bahasa && $negara && $rating && $tahun_rilis) {
+
+            // upload poster
+            $temp = "assets/img/";
+            if (!file_exists($temp))
+                mkdir($temp);
+
+            // $nama_file       = $_POST['poster'];
+            $fileupload      = $_FILES['poster']['tmp_name'];
+            $ImageName       = $_FILES['poster']['name'];
+            $ImageType       = $_FILES['poster']['type'];
+
+            if (!empty($fileupload)) {
+                $ImageExt       = substr($ImageName, strrpos($ImageName, '.'));
+                $ImageExt       = str_replace('.', '', $ImageExt); // Extension
+                $ImageName      = preg_replace("/\.[^.\s]{3,4}$/", "", $ImageName);
+                $NewImageName   = str_replace(' ', '', $ImageName) . '.' . $ImageExt;
+
+                move_uploaded_file($_FILES["poster"]["tmp_name"], $temp . $NewImageName); // Menyimpan file
+
+                $poster = $NewImageName;
+            } else {
+                $NewImageName = $this->input->put('posterbc');
+                $poster = $NewImageName;
+            }
+
+            $film = [
+                'id_homeproduction' => $id_homeproduction,
+                'judul' => $judul,
+                'producer' => $producer,
+                'penulis_naskah' => $penulis_naskah,
+                'musik' => $musik,
+                'cimatografi' => $cimatografi,
+                'editor' => $editor,
+                'durasi' => $durasi,
+                'poster' => $poster,
+                'bahasa' => $bahasa,
+                'negara' => $negara,
+                'rating' => $rating,
+                'tahun_rilis' => $tahun_rilis
+            ];
+
             $this->Film_model->update($id_film, $film);
             $this->response([
                 'status' => true,
@@ -229,7 +285,7 @@ class Api extends RestController
         $nama = $this->post('nama');
         $pemilik = $this->post('pemilik');
         $tahun_berdiri = $this->post('tahun_berdiri');
-        $logo = $this->post('logo');
+        $logo = $_FILES['logo'];
         $website = $this->post('website');
         $email = $this->post('email');
         $no_tlp = $this->post('no_tlp');
@@ -238,21 +294,51 @@ class Api extends RestController
         $instagram = $this->post('instagram');
         $twitter = $this->post('twitter');
 
-        $homeproduction = [
-            'nama' => $nama,
-            'pemilik' => $pemilik,
-            'tahun_berdiri' => $tahun_berdiri,
-            'logo' => $logo,
-            'website' => $website,
-            'email' => $email,
-            'no_tlp' => $no_tlp,
-            'alamat' => $alamat,
-            'facebook' => $facebook,
-            'instagram' => $instagram,
-            'twitter' => $twitter
-        ];
+
 
         if ($nama && $pemilik && $tahun_berdiri && $logo && $website && $email && $no_tlp && $alamat && $facebook && $instagram && $twitter) {
+
+            // upload logo
+            $temp = "assets/img/logo/";
+            if (!file_exists($temp))
+                mkdir($temp);
+
+            // $nama_file       = $_POST['logo'];
+            $fileupload      = $_FILES['logo']['tmp_name'];
+            $ImageName       = $_FILES['logo']['name'];
+            $ImageType       = $_FILES['logo']['type'];
+
+            if (!empty($fileupload)) {
+                $ImageExt       = substr($ImageName, strrpos($ImageName, '.'));
+                $ImageExt       = str_replace('.', '', $ImageExt); // Extension
+                $ImageName      = preg_replace("/\.[^.\s]{3,4}$/", "", $ImageName);
+                $NewImageName   = str_replace(' ', '', $ImageName) . '.' . $ImageExt;
+
+                move_uploaded_file($_FILES["logo"]["tmp_name"], $temp . $NewImageName); // Menyimpan file
+
+                // echo "Data Berhasil Diupload";
+                $logo = $NewImageName;
+            } else {
+                $this->response([
+                    'status' => false,
+                    'message' => 'data film gagal ditambahkan, logo gagal di upload'
+                ], 400);
+            }
+
+            $homeproduction = [
+                'nama' => $nama,
+                'pemilik' => $pemilik,
+                'tahun_berdiri' => $tahun_berdiri,
+                'logo' => $logo,
+                'website' => $website,
+                'email' => $email,
+                'no_tlp' => $no_tlp,
+                'alamat' => $alamat,
+                'facebook' => $facebook,
+                'instagram' => $instagram,
+                'twitter' => $twitter
+            ];
+
             $this->Homeproduction_model->insert($homeproduction);
             $this->response([
                 'status' => true,
@@ -272,7 +358,7 @@ class Api extends RestController
         $nama = $this->put('nama');
         $pemilik = $this->put('pemilik');
         $tahun_berdiri = $this->put('tahun_berdiri');
-        $logo = $this->put('logo');
+        $logo = $_FILES['logo'];
         $website = $this->put('website');
         $email = $this->put('email');
         $no_tlp = $this->put('no_tlp');
@@ -282,22 +368,48 @@ class Api extends RestController
         $twitter = $this->put('twitter');
 
 
-        $homeproduction = [
-            'id_homeproduction' => $id_homeproduction,
-            'nama' => $nama,
-            'pemilik' => $pemilik,
-            'tahun_berdiri' => $tahun_berdiri,
-            'logo' => $logo,
-            'website' => $website,
-            'email' => $email,
-            'no_tlp' => $no_tlp,
-            'alamat' => $alamat,
-            'facebook' => $facebook,
-            'instagram' => $instagram,
-            'twitter' => $twitter,
-        ];
+
 
         if ($id_homeproduction && $nama && $pemilik && $tahun_berdiri && $logo && $website && $email && $no_tlp && $alamat && $facebook && $instagram && $twitter) {
+
+            // upload logo
+            $temp = "assets/img/logo/";
+            if (!file_exists($temp))
+                mkdir($temp);
+
+            // $nama_file       = $_POST['logo'];
+            $fileupload      = $_FILES['logo']['tmp_name'];
+            $ImageName       = $_FILES['logo']['name'];
+            $ImageType       = $_FILES['logo']['type'];
+
+            if (!empty($fileupload)) {
+                $ImageExt       = substr($ImageName, strrpos($ImageName, '.'));
+                $ImageExt       = str_replace('.', '', $ImageExt); // Extension
+                $ImageName      = preg_replace("/\.[^.\s]{3,4}$/", "", $ImageName);
+                $NewImageName   = str_replace(' ', '', $ImageName) . '.' . $ImageExt;
+
+                move_uploaded_file($_FILES["logo"]["tmp_name"], $temp . $NewImageName); // Menyimpan file
+
+                $logo = $NewImageName;
+            } else {
+                $NewImageName = $this->input->put('logobc');
+            }
+
+            $homeproduction = [
+                'id_homeproduction' => $id_homeproduction,
+                'nama' => $nama,
+                'pemilik' => $pemilik,
+                'tahun_berdiri' => $tahun_berdiri,
+                'logo' => $logo,
+                'website' => $website,
+                'email' => $email,
+                'no_tlp' => $no_tlp,
+                'alamat' => $alamat,
+                'facebook' => $facebook,
+                'instagram' => $instagram,
+                'twitter' => $twitter,
+            ];
+
             $this->Homeproduction_model->update($id_homeproduction, $homeproduction);
             $this->response([
                 'status' => true,
