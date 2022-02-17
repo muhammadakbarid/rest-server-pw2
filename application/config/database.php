@@ -83,7 +83,7 @@ if (in_array($_SERVER['REMOTE_ADDR'], $whitelist)) {
 	$p_db = '';
 	$n_db = 'pw2_film';
 } else {
-	//Users: aplikami_ulogin, aplikami_udemo_trucking
+
 	$u_db = 'muhakbar_admin';
 	$p_db = 'nokiax202samsungj2';
 	$n_db = 'muhakbar_api';
