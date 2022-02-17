@@ -9,9 +9,9 @@
   <meta name="google-site-verification" content="azliSlFKndcGdtJ9n4Ksvg-Qr62jtsfAoGyimPUg3js" />
 
   <!-- Favicons -->
-  <link href="<?= base_url(); ?>/assets/img/favicon.webp" rel="icon">
-  <link href="<?= base_url(); ?>/assets/img/favicon.webp" rel="shortcut icon">
-  <link href="<?= base_url(); ?>/assets/img/favicon.webp" rel="apple-touch-icon">
+  <link href="<?= base_url(); ?>assets/img/favicon.webp" rel="icon">
+  <link href="<?= base_url(); ?>assets/img/favicon.webp" rel="shortcut icon">
+  <link href="<?= base_url(); ?>assets/img/favicon.webp" rel="apple-touch-icon">
 
   <!-- HTML Meta Tags -->
   <title>WikiMovieMedia</title>
@@ -20,17 +20,17 @@
 
 
   <!-- Vendor CSS Files -->
-  <link href="<?= base_url(); ?>/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS -->
-  <link href="<?= base_url(); ?>/assets/css/style.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>assets/css/style.css" rel="stylesheet">
 
   <!-- Fonts Awesome -->
-  <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="<?= base_url(); ?>assets/css/fontawesome.min.css">
 
 
 </head>
