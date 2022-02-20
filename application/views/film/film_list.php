@@ -48,7 +48,13 @@
                     <td><img src="<?= base_url('/assets/img/') . $film->poster; ?>" alt="" class="img img-responsive" width="150"></td>
                     <td><?php echo $film->judul ?></td>
                     <td><?php echo $film->producer ?></td>
-                    <td><?php echo $film->id_homeproduction ?></td>
+                    <?php
+                        // id_home_production to home_production name
+                        $home_production = $this->db->get_where('homeproduction', ['id_homeproduction' => $film->id_homeproduction])->row();
+
+
+                    ?>
+                    <td><?php echo $home_production->nama ?></td>
                     <td><?php echo $film->tahun_rilis ?></td>
                     <td><?php echo $film->durasi ?></td>
                     <td style="text-align:center" width="200px">
