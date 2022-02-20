@@ -20,7 +20,7 @@ class Auth extends CI_Controller
 
     $email = $this->input->post('email');
     $password = $this->input->post('password');
-    $password = password_verify($password, PASSWORD_DEFAULT);
+    // $password = password_verify($password, PASSWORD_DEFAULT);
 
     if ($this->User_model->checkuser($email, $password)) {
       // jika login berhasil

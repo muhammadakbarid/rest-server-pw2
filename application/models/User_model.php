@@ -97,14 +97,19 @@ class User_model extends CI_Model
 
     public function checkuser($email, $password)
     {
-        $this->db->where('email', $email);
-        $this->db->where('password', $password);
-        $query = $this->db->get('user');
 
-        if ($query->num_rows() > 0) {
-            return true;
-        } else {
-            return false;
+        $this->db->where('email', $email);
+        $query = $this->db->get($this->table);
+        $user = $query->row();
+
+        // cek apakah user sudah terdaftar?
+        if ($user) {
+            // cek apakah passwordnya benar?
+            if (!password_verify($password, $user->password)) {
+                return  FALSE;
+            } else {
+                return true;
+            }
         }
     }
 }
