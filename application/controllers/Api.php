@@ -78,7 +78,7 @@ class Api extends RestController
         $cimatografi = $this->post('cimatografi');
         $editor = $this->post('editor');
         $durasi = $this->post('durasi');
-        $poster = $_FILES['poster'];
+        $poster = $this->post('poster');
         $bahasa = $this->post('bahasa');
         $negara = $this->post('negara');
         $rating = $this->post('rating');
