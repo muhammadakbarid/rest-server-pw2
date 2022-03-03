@@ -130,6 +130,9 @@ class Api extends RestController
                 'tahun_rilis' => $tahun_rilis
             ];
 
+            var_dump($film);
+            exit;
+
             $this->Film_model->insert($film);
             $this->response([
                 'status' => true,
