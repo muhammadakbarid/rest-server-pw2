@@ -414,8 +414,8 @@ class Api extends RestController
                 'twitter' => $twitter,
             ];
 
-            var_dump($homeproduction);
-            exit;
+            // var_dump($homeproduction);
+            // exit;
 
             $this->Homeproduction_model->update($id_homeproduction, $homeproduction);
             $this->response([
