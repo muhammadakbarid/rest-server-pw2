@@ -84,7 +84,24 @@ class Api extends RestController
         $rating = $this->post('rating');
         $tahun_rilis = $this->post('tahun_rilis');
 
+        $film = [
+            'id_homeproduction' => $id_homeproduction,
+            'judul' => $judul,
+            'producer' => $producer,
+            'penulis_naskah' => $penulis_naskah,
+            'musik' => $musik,
+            'cimatografi' => $cimatografi,
+            'editor' => $editor,
+            'durasi' => $durasi,
+            'poster' => $poster,
+            'bahasa' => $bahasa,
+            'negara' => $negara,
+            'rating' => $rating,
+            'tahun_rilis' => $tahun_rilis
+        ];
 
+        var_dump($film);
+        exit;
         if ($poster && $id_homeproduction  && $judul && $producer && $penulis_naskah && $musik && $cimatografi && $editor && $durasi && $bahasa && $negara && $rating && $tahun_rilis) {
 
             // upload poster
