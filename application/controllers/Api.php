@@ -370,6 +370,23 @@ class Api extends RestController
         $instagram = $this->put('instagram');
         $twitter = $this->put('twitter');
 
+        $homeproduction = [
+            'id_homeproduction' => $id_homeproduction,
+            'nama' => $nama,
+            'pemilik' => $pemilik,
+            'tahun_berdiri' => $tahun_berdiri,
+            // 'logo' => $logo,
+            'website' => $website,
+            'email' => $email,
+            'no_tlp' => $no_tlp,
+            'alamat' => $alamat,
+            'facebook' => $facebook,
+            'instagram' => $instagram,
+            'twitter' => $twitter,
+        ];
+
+        var_dump($homeproduction);
+        exit;
 
 
 
