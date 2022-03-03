@@ -100,8 +100,8 @@ class Api extends RestController
             'tahun_rilis' => $tahun_rilis
         ];
 
-        var_dump($film);
-        exit;
+        // var_dump($film);
+        // exit;
         if ($poster && $id_homeproduction  && $judul && $producer && $penulis_naskah && $musik && $cimatografi && $editor && $durasi && $bahasa && $negara && $rating && $tahun_rilis) {
 
             // upload poster
