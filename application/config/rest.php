@@ -566,6 +566,7 @@ $config['allowed_cors_headers'] = [
     'Content-Type',
     'Accept',
     'Access-Control-Request-Method',
+    'Authorization'
 ];
 
 /*
@@ -629,5 +630,8 @@ $config['allowed_cors_origins'] = [];
 |
 */
 $config['forced_cors_headers'] = [
-    'Access-Control-Allow-Credentials' => 'true'
+    'Access-Control-Allow-Credentials' => 'true',
+    'Access-Control-Allow-Origin: *',
+    'Access-Control-Allow-Methods: GET, POST, PUT, DELETE',
+    'Access-Control-Allow-Headers: Authorization'
 ];
