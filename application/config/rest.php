@@ -594,7 +594,7 @@ $config['allowed_cors_methods'] = [
 | source domain
 |
 */
-$config['allow_any_cors_domain'] = false;
+$config['allow_any_cors_domain'] = true;
 
 /*
 |--------------------------------------------------------------------------
@@ -607,9 +607,7 @@ $config['allow_any_cors_domain'] = false;
 | e.g. $config['allowed_origins'] = ['http://www.example.com', 'https://spa.example.com']
 |
 */
-$config['allowed_cors_origins'] = [
-    'http://localhost'
-];
+$config['allowed_cors_origins'] = [];
 
 /*
 |--------------------------------------------------------------------------
