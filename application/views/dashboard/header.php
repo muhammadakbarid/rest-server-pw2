@@ -77,7 +77,7 @@
               </a>
             </li>
             <li class="sidebar-item ">
-              <a href="https://documenter.getpostman.com/view/13060503/UVeMJPev" class='sidebar-link' target="_BLANK">
+              <a href="https://documenter.getpostman.com/view/18014074/UVkvJCFf" class='sidebar-link' target="_BLANK">
                 <i data-feather="book-open" width="20"></i>
                 <span>Dokumentasi Api</span>
               </a>
