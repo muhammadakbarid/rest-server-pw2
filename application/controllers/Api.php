@@ -87,7 +87,7 @@ class Api extends RestController
         // exit;
 
 
-        if ($poster && $id_homeproduction  && $judul && $producer && $penulis_naskah && $musik && $cimatografi && $editor && $durasi && $bahasa && $negara && $rating && $tahun_rilis) {
+        if ($id_homeproduction  && $judul && $producer && $penulis_naskah && $musik && $cimatografi && $editor && $durasi && $bahasa && $negara && $rating && $tahun_rilis) {
 
             // upload poster
             $temp = "assets/img/";
@@ -323,7 +323,7 @@ class Api extends RestController
 
 
 
-        if ($nama && $pemilik && $tahun_berdiri && $logo && $website && $email && $no_tlp && $alamat && $facebook && $instagram && $twitter) {
+        if ($nama && $pemilik && $tahun_berdiri  && $website && $email && $no_tlp && $alamat && $facebook && $instagram && $twitter) {
 
             // upload logo
             $temp = "assets/img/logo/";
