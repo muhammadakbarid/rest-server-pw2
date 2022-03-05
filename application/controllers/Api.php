@@ -212,8 +212,8 @@ class Api extends RestController
             //     'tahun_rilis' => $tahun_rilis
             // ];
 
-            var_dump($id_film);
-            exit;
+            // var_dump($id_film);
+            // exit;
 
             $film = [
                 'id_homeproduction' => $id_homeproduction,
