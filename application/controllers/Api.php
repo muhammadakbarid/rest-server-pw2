@@ -83,8 +83,8 @@ class Api extends RestController
         $negara = $this->post('negara');
         $rating = $this->post('rating');
         $tahun_rilis = $this->post('tahun_rilis');
-        var_dump($poster);
-        exit;
+        // var_dump($poster);
+        // exit;
 
 
         if ($poster && $id_homeproduction  && $judul && $producer && $penulis_naskah && $musik && $cimatografi && $editor && $durasi && $bahasa && $negara && $rating && $tahun_rilis) {
