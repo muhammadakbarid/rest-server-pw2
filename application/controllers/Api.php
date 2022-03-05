@@ -92,7 +92,7 @@ class Api extends RestController
             if (!file_exists($temp))
                 mkdir($temp);
 
-            $nama_file       = $_POST['poster'];
+            // $nama_file       = $_POST['poster'];
             $fileupload      = $_FILES['poster']['tmp_name'];
             $ImageName       = $_FILES['poster']['name'];
             $ImageType       = $_FILES['poster']['type'];
