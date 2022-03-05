@@ -212,6 +212,25 @@ class Api extends RestController
                 'tahun_rilis' => $tahun_rilis
             ];
 
+            var_dump($film);
+            exit;
+
+            $film = [
+                'id_homeproduction' => $id_homeproduction,
+                'judul' => $judul,
+                'producer' => $producer,
+                'penulis_naskah' => $penulis_naskah,
+                'musik' => $musik,
+                'cimatografi' => $cimatografi,
+                'editor' => $editor,
+                'durasi' => $durasi,
+                // 'poster' => $poster,
+                'bahasa' => $bahasa,
+                'negara' => $negara,
+                'rating' => $rating,
+                'tahun_rilis' => $tahun_rilis
+            ];
+
             $this->Film_model->update($id_film, $film);
             $this->response([
                 'status' => true,
